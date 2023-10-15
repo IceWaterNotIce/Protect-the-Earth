@@ -1,6 +1,6 @@
 # Protect-the-Earth
 ***
-It is a VTC SDD4006 Group Project.
+It is a VTC SDD4006 Group Project. We design a educational game for 6-12 years old group to rasie swareness and the consequence.
 
 The project is related to Responsible Consumption and Production (SDG no.12).
 
