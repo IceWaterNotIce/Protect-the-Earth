@@ -35,3 +35,10 @@ Hong Kong has the highest per capita amount of e-waste in Asia.
 [地球之友 《減少電子垃圾 締造美好環境》](https://reurl.cc/9Rvzdn)
 
 [BBC《電子垃圾：全球增長最快、回收率極低的家庭垃圾》](https://reurl.cc/jvW77D )
+
+# Time Table
+
+|Date|Event|
+|---|---|
+|17/10|Confirm Game flow, points method and how to match our local questions through gameplay, etc.|
+|10/11|Initial completion of the game|
