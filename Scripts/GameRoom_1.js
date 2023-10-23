@@ -136,7 +136,7 @@ function loop(){
     //#endregion
 
     //#region Create
-    if ( Rubbishs.length < 2||Math.floor(Math.random()*800) == 2) {
+    if ( Rubbishs.length < 2||Math.floor(Math.random()*80) == 2) {
         x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
         //console.log("Created Rubbish");
         Rubbishs.push(new component(0, 0, x, -RubbishImg.height, 0, 3, "img", RubbishImg, null, 15, null));
@@ -145,6 +145,7 @@ function loop(){
             //console.log(Bullets[i].crashWith(Rubbishs[j]));
             if (Rubbishs[Rubbishs.length - 1].crashWith(Rubbishs[j]) == true) {
                 Rubbishs.splice(Rubbishs.length - 1, 1);
+                console.log("rubbish collide with other rubbish");
                 break;
             }
         }
