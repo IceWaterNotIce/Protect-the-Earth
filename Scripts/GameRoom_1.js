@@ -147,7 +147,7 @@ function loop(){
     }
     //#endregion
 
-    // Update
+    //#region Update
     Plane.update();
     for (i = 0; i < Rubbishs.length; i += 1) {
         //console.log(Rubbishs[i].y);
@@ -166,9 +166,11 @@ function loop(){
     }
     GameScore.text = "SCORE: " + GameScore.score;
     GameScore.update();
+    //#endregion
 }
 
 function endgame(){
+    clearInterval(GameArea.interval);
 }
 
 
