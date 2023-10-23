@@ -139,7 +139,7 @@ function loop(){
     if ( Rubbishs.length < 2||Math.floor(Math.random()*800) == 2) {
         x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
         //console.log("Created Rubbish");
-        Rubbishs.push(new component(0, 0, x, RubbishImg.height, 0, 3, "img", RubbishImg, null, 15, null));
+        Rubbishs.push(new component(0, 0, x, -RubbishImg.height, 0, 3, "img", RubbishImg, null, 15, null));
         // delete rubbish if it collide with other rubbish
         for (let j = 0; j < Rubbishs.length - 1; j += 1) {
             //console.log(Bullets[i].crashWith(Rubbishs[j]));
