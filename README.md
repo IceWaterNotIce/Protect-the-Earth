@@ -7,7 +7,7 @@ We design a educational game for 6-12 years old group to rasie swareness and the
 The project is related to Responsible Consumption and Production (SDG no.12).
 ## Website
 
-[[https://icewaternotice.github.io/Protect-the-Earth/]]
+https://icewaternotice.github.io/Protect-the-Earth/
 
 ## A problem of our community about Responsible Consumption and Production
 
