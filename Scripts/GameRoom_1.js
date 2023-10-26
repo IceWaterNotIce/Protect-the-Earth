@@ -36,22 +36,21 @@ var GameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 };
-var GameScore;
 
 //#region Plane control
 document.addEventListener("keydown", function(e){
     //console.log(e.key);
     if (e.key == "A" || e.key == "a"){ 
-        Plane.MoveRight = true;
-        Plane.MoveLeft = false;
+        plane.MoveRight = true;
+        plane.MoveLeft = false;
     }
     else if (e.key == "D" || e.key == "d"){ 
-        Plane.MoveRight = false;
-        Plane.MoveLeft = true;
+        plane.MoveRight = false;
+        plane.MoveLeft = true;
     }
-    if (e.key === " " && !PlaneShootingInterval){
-        //console.log(PlaneShootingInterval);
-        PlaneShootingInterval = setInterval(PlaneShootBullet, 300);
+    if (e.key === " " && !plane.ShootingInterval){
+        plane.StartShootingInterval();
+        //console.log(plane.ShootingInterval);
     }
     e.preventDefault();
 })
@@ -59,19 +58,17 @@ document.addEventListener("keydown", function(e){
 document.addEventListener("keyup", function(e){
     //console.log(e.key);
     if (e.key === "A" || e.key === "a"){ 
-        Plane.MoveRight = false;
+        plane.MoveRight = false;
     }
     else if (e.key === "D" || e.key === "d"){ 
-        Plane.MoveLeft = false;
+        plane.MoveLeft = false;
     }
     if (e.key === " "){
-        clearInterval(PlaneShootingInterval);
-        PlaneShootingInterval = null;
+        clearInterval(plane.ShootingInterval);
+        plane.ShootingInterval = null;
     }
     e.preventDefault();
 })
-
-//#endregion
 
 //#endregion
 
@@ -80,11 +77,11 @@ document.addEventListener("DOMContentLoaded", function() {
     startgame();
 });
 
-function startgame(){
+function startgame(){        
     GameArea.start();
-    plane(0, 0, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, "img", PlaneImg);
-    Planelife = 4;
-    GameScore = new component(0, 0, 2.5*GameArea.canvas.width/4, 50, 0, 0, "text", null, "#000000");
+    plane = new Plane(0, 0, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 4, 5);
+    GameScore = new TextComponent(0, 0, 2*GameArea.canvas.width/4, 50, 0, 0, "text", "#000000", "40px Arial");
+    GameScore.score = 0;
 }
 
 function loop(){
@@ -109,10 +106,10 @@ function loop(){
     // delete rubbish if it collide with Plane
     for (let j = 0; j < Rubbishs.length; j += 1) {
         //console.log(Bullets[i].crashWith(Rubbishs[j]));
-        if (Plane.crashWith(Rubbishs[j]) == true) {
-            Planelife -= 1;
+        if (plane.crashWith(Rubbishs[j]) == true) {
+            plane.life -= 1;
             Rubbishs.splice(j, 1);
-            if (Planelife == 0){
+            if (plane.life == 0){
                 endgame();
             }
             break;
@@ -139,25 +136,22 @@ function loop(){
     if ( Rubbishs.length < 2||Math.floor(Math.random()*80) == 2) {
         x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
         //console.log("Created Rubbish");
-        Rubbishs.push(new component(0, 0, x, -RubbishImg.height, 0, 3, "img", RubbishImg, null, 15, null));
+        Rubbishs.push(new Rubbish(0, 0, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
         // delete rubbish if it collide with other rubbish
         for (let j = 0; j < Rubbishs.length - 1; j += 1) {
             //console.log(Bullets[i].crashWith(Rubbishs[j]));
             if (Rubbishs[Rubbishs.length - 1].crashWith(Rubbishs[j]) == true) {
                 Rubbishs.splice(Rubbishs.length - 1, 1);
-                console.log("rubbish collide with other rubbish");
+                //console.log("rubbish collide with other rubbish");
                 break;
             }
         }
     }
-    if (PlaneCanShoot === true){
-        Bullets.push(new component(0, 0, Plane.x+(Plane.img.width-BulletImg.width)/2, Plane.y-BulletImg.height, 0, -3, "img", BulletImg, null, null, 5));
-        PlaneCanShoot = false;
-    }
     //#endregion
 
     //#region Update
-    Plane.update();
+    plane.newPos();
+    plane.update();
     for (i = 0; i < Rubbishs.length; i += 1) {
         //console.log(Rubbishs[i].y);
         Rubbishs[i].newPos();
@@ -168,7 +162,7 @@ function loop(){
         Bullets[i].newPos();
         Bullets[i].update();
     }
-    for (i = 0; i < Planelife; i += 1) {
+    for (i = 0; i < plane.life; i += 1) {
         //console.log(Planelife);
         ctx = GameArea.context;
         ctx.drawImage(HeartImg, 10+HeartImg.width*i, 10);
@@ -180,6 +174,7 @@ function loop(){
 
 function endgame(){
     clearInterval(GameArea.interval);
+
 }
 
 
