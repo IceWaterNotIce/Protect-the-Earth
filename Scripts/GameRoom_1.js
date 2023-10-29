@@ -157,18 +157,16 @@ function loop(){
     if ( Rubbishs.length < 2||Math.floor(Math.random()*80) == 2) {
         let RubbishImg = new Image();
         RubbishImg.src = RubbishPlasticImgUrls[Math.floor(Math.random() * RubbishPlasticImgUrls.length)];
-        RubbishImg.onload = () => {
-            let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
-            Rubbishs.push(new Rubbish(0, 0, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
-            //console.log("Created Rubbish");
-            // delete rubbish if it collide with other rubbish
-            for (let j = 0; j < Rubbishs.length - 1; j += 1) {
-                //console.log(Bullets[i].crashWith(Rubbishs[j]));
-                if (Rubbishs[Rubbishs.length - 1].crashWith(Rubbishs[j]) == true) {
-                    Rubbishs.splice(Rubbishs.length - 1, 1);
-                    console.log("rubbish collide with other rubbish");
-                    break;
-                }
+        let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
+        Rubbishs.push(new Rubbish(0, 0, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
+        //console.log("Created Rubbish");
+        // delete rubbish if it collide with other rubbish
+        for (let j = 0; j < Rubbishs.length - 1; j += 1) {
+            //console.log(Bullets[i].crashWith(Rubbishs[j]));
+            if (Rubbishs[Rubbishs.length - 1].crashWith(Rubbishs[j]) == true) {
+                Rubbishs.splice(Rubbishs.length - 1, 1);
+                console.log("rubbish collide with other rubbish");
+                break;
             }
         }
     }
