@@ -95,13 +95,9 @@ function startgame(){
     if (deviceType == "Mobile"){
         var Control_rod_img = new Image();
         Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
-        Control_rod_img.onload = () => {
-            Control_rod = new ImgComponent(0, GameArea.canvas.height - Control_rod_img.height, 0, 0, Control_rod_img);
-        }  
+        Control_rod = new ImgComponent(0, GameArea.canvas.height - Control_rod_img.height, 0, 0, Control_rod_img);  
         Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
-        Shoot_icon_img.onload = () => {
-            Shoot_icon = new ImgComponent(0, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
-        }  
+        Shoot_icon = new ImgComponent(0, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
     }
     GameScore = new TextComponent(0, 0, 2*GameArea.canvas.width/4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
