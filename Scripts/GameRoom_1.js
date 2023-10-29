@@ -36,6 +36,10 @@ var GameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 };
+var Control_rod;
+var Shoot_icon;
+var GameScore;
+//#endregion
 
 //#region Plane control
 document.addEventListener("keydown", function(e){
@@ -120,9 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
     startgame();
 });
 
-var Control_rod;
-var Shoot_icon;
-var GameScore;
+
 
 function startgame(){        
     GameArea.start();
