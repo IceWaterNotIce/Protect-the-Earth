@@ -1,11 +1,10 @@
-var BulletImg = new Image(); 
-BulletImg.src = "Resources\\Bullet.png";
+var BulletRGBColor = "#FF00FF";
 
 var Bullets = [];
 
-class Bullet extends ImgComponent{
-    constructor(width, height, x, y, speedX, speedY, img, attack) {
-    super(width, height, x, y, speedX, speedY, img);
+class Bullet extends RectComponent{
+    constructor(width, height, x, y, speedX, speedY, rectRGBColor, attack) {
+    super(width, height, x, y, speedX, speedY, rectRGBColor);
     this.attack = attack;
     }
     update(){

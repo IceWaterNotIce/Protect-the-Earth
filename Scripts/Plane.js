@@ -3,9 +3,8 @@ var PlaneLife = 4 ;
 var PlaneAttack = 5;
 var PlaneShootingInterval;
 var PlaneCanShoot;
-var PlaneImgUrl = "Resources\\Plane.png";
+var PlaneImgUrls = ["Image\\Plane\\Plane_1.png","Image\\Plane\\Plane_2.png","Image\\Plane\\Plane_3.png"];
 var PlaneImg = new Image();
-PlaneImg.src = PlaneImgUrl;
 
 var HeartImgUrl = "Resources\\Heart.png";
 var HeartImg = new Image();
@@ -47,13 +46,13 @@ class Plane extends ImgComponent{
         }
         //console.log(this.CanShoot);
         if (this.CanShoot == true){
-            Bullets.push(new Bullet(0,   
-                                    0, 
-                                    this.x+(this.img.width-BulletImg.width)/2, 
-                                    this.y-BulletImg.height,
+            Bullets.push(new Bullet(5,   
+                                    20, 
+                                    this.x+(this.img.width-5)/2, 
+                                    this.y-20,
                                     0,
                                     -3,
-                                    BulletImg,
+                                    BulletRGBColor,
                                     this.attack
                                     ));
             this.CanShoot = false;

@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function startgame(){        
     GameArea.start();
+    PlaneImg.src = PlaneImgUrls[0];
     plane = new Plane(0, 0, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 4, 5);
     GameScore = new TextComponent(0, 0, 2*GameArea.canvas.width/4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
@@ -136,6 +137,7 @@ function loop(){
     if ( Rubbishs.length < 2||Math.floor(Math.random()*80) == 2) {
         x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
         //console.log("Created Rubbish");
+        RubbishImg.src = RubbishPlasticImgUrls[Math.floor(Math.random() * RubbishPlasticImgUrls.length)];
         Rubbishs.push(new Rubbish(0, 0, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
         // delete rubbish if it collide with other rubbish
         for (let j = 0; j < Rubbishs.length - 1; j += 1) {
