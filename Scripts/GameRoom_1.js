@@ -70,10 +70,10 @@ document.addEventListener("keyup", function(e){
     e.preventDefault();
 })
 
-document.addEventListener("touchstart", process, false);
-document.addEventListener("touchmove", process, false);
-document.addEventListener("touchcancel", process, false);
-document.addEventListener("touchend", process, false);
+GameArea.canvas.addEventListener("touchstart", process, false);
+GameArea.canvas.addEventListener("touchmove", process, false);
+GameArea.canvas.addEventListener("touchcancel", process, false);
+GameArea.canvas.addEventListener("touchend", process, false);
 function process(ev) {
     // Use the event's data to call out to the appropriate gesture handlers
     console.log(ev.touches);
