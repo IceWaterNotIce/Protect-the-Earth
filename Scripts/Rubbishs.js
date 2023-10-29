@@ -39,7 +39,7 @@ var Rubbishs = [];
 
 class Rubbish extends ImgComponent{
     constructor(width, height, x, y, speedX, speedY, img, Maxlife) {
-        super(x, y, speedX, speedY, img);
+        super(width, height, x, y, speedX, speedY, img);
         this.life = Maxlife;
         this.Maxlife = Maxlife;
       }

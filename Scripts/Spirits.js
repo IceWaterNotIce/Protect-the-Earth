@@ -44,23 +44,13 @@ class Component{
 }
 
 class ImgComponent extends Component{
-    constructor(x, y, speedX, speedY, img) {
-        super(0, 0, x, y, speedX, speedY);
+    constructor(width, height, x, y, speedX, speedY, img) {
+        super(width, height, x, y, speedX, speedY);
         this.img = img;
-
-        // Add an event listener for the 'load' event
-        this.img.onload = () => {
-            // Once the image is loaded, update the width and height properties
-            this.width = this.img.width;
-            this.height = this.img.height;
-
-            // Call the parent class constructor after the image is loaded
-            super(this.width, this.height, x, y, speedX, speedY);
-        }
     }
     update() {
         let ctx = GameArea.context;
-        ctx.drawImage(this.img, this.x, this.y);
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 }
 

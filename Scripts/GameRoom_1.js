@@ -70,13 +70,40 @@ document.addEventListener("keyup", function(e){
     e.preventDefault();
 })
 
-GameArea.canvas.addEventListener("touchstart", process, false);
-GameArea.canvas.addEventListener("touchmove", process, false);
-GameArea.canvas.addEventListener("touchcancel", process, false);
-GameArea.canvas.addEventListener("touchend", process, false);
-function process(ev) {
+GameArea.canvas.addEventListener("touchstart", startprocess, false);
+GameArea.canvas.addEventListener("touchcancel", endprocess, false);
+GameArea.canvas.addEventListener("touchend", endprocess, false);
+function startprocess(ev) {
     // Use the event's data to call out to the appropriate gesture handlers
+    for(let i = 0; i < ev.touches.length; i += 1){
+        if(ev.touches[i].clientX > Control_rod_img.x && ev.touches[i].clientX < Control_rod_img.x + Control_rod_img.width /2
+            && ev.touches[i].clientY > Control_rod_img.y && ev.touches[i].clientY < Control_rod_img.y + Control_rod_img.height )
+        {
+            plane.MoveRight = true;
+            plane.MoveLeft = false;
+        }
+        if(ev.touches[i].clientX > Control_rod_img.x + Control_rod_img.width/2 && ev.touches[i].clientX < Control_rod_img.x + Control_rod_img.width
+            && ev.touches[i].clientY > Control_rod_img.y && ev.touches[i].clientY < Control_rod_img.y + Control_rod_img.height )
+        {
+            plane.MoveRight = false;
+            plane.MoveLeft = true;
+        }
+        if(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
+            && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height 
+            && !plane.ShootingInterval)
+        {
+            plane.StartShootingInterval();
+        }
+    }
+    ev.preventDefault();
+  }
+function endprocess(ev) {
     console.log(ev.touches);
+    plane.MoveRight = false;
+    plane.MoveLeft = false;
+    clearInterval(plane.ShootingInterval);
+    plane.ShootingInterval = null;
+    ev.preventDefault();
   }
 //#endregion
 
@@ -92,14 +119,20 @@ var GameScore;
 function startgame(){        
     GameArea.start();
     PlaneImg.src = PlaneImgUrls[0];
-    plane = new Plane(0, 0, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 4, 5);
+    PlaneImg.onload = () => {
+        plane = new Plane(PlaneImg.width, PlaneImg.height, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 4, 5);
+    }
     if (deviceType == "Mobile"){
-        var Control_rod_img = new Image();
+        Control_rod_img = new Image();
         Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
-        Control_rod = new ImgComponent(0, GameArea.canvas.height - Control_rod_img.height, 0, 0, Control_rod_img);  
-        var Shoot_icon_img = new Image();
+        Control_rod_img.onload = () => {
+            Control_rod = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, 0, GameArea.canvas.height - GameArea.canvas.width/2, 0, 0, Control_rod_img);  
+        }
+        Shoot_icon_img = new Image();
         Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
-        Shoot_icon = new ImgComponent(0, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
+        Shoot_icon_img.onload = () => {
+            Shoot_icon = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
+        }
     }
     GameScore = new TextComponent(0, 0, 2*GameArea.canvas.width/4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
@@ -157,18 +190,20 @@ function loop(){
     if ( Rubbishs.length < 2||Math.floor(Math.random()*80) == 2) {
         let RubbishImg = new Image();
         RubbishImg.src = RubbishPlasticImgUrls[Math.floor(Math.random() * RubbishPlasticImgUrls.length)];
-        let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
-        Rubbishs.push(new Rubbish(0, 0, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
-        //console.log("Created Rubbish");
-        // delete rubbish if it collide with other rubbish
-        for (let j = 0; j < Rubbishs.length - 1; j += 1) {
-            //console.log(Bullets[i].crashWith(Rubbishs[j]));
-            if (Rubbishs[Rubbishs.length - 1].crashWith(Rubbishs[j]) == true) {
-                Rubbishs.splice(Rubbishs.length - 1, 1);
-                console.log("rubbish collide with other rubbish");
-                break;
+        RubbishImg.onload = () => {
+            let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
+            Rubbishs.push(new Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
+            //console.log("Created Rubbish");
+            // delete rubbish if it collide with other rubbish
+            for (let j = 0; j < Rubbishs.length - 1; j += 1) {
+                //console.log(Bullets[i].crashWith(Rubbishs[j]));
+                if (Rubbishs[Rubbishs.length - 1].crashWith(Rubbishs[j]) == true) {
+                    Rubbishs.splice(Rubbishs.length - 1, 1);
+                    //console.log("rubbish collide with other rubbish");
+                    break;
+                }
             }
-        }
+        }   
     }
     //#endregion
 
@@ -190,8 +225,11 @@ function loop(){
         ctx = GameArea.context;
         ctx.drawImage(HeartImg, 10+HeartImg.width*i, 10);
     }
-    Control_rod.update();
-    Shoot_icon.update();
+    if (deviceType == "Mobile"){
+        //console.log(Control_rod.img);
+        Control_rod.update();
+        Shoot_icon.update();
+    }
     GameScore.text = "SCORE: " + GameScore.score;
     GameScore.update();
     //#endregion
