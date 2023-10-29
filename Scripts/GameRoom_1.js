@@ -245,7 +245,7 @@ function loop(){
         Control_rod.update();
         Shoot_icon.update();
     }
-    let context = canvas.getContext("2d"); 
+    let context = GameArea.canvas.getContext("2d"); 
     context.font = GameScore.textFont;
     let metrics = context.measureText(text);
     GameScore.x = GameArea.canvas.width - metrics.width;
