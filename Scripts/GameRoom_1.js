@@ -96,6 +96,7 @@ function startgame(){
         var Control_rod_img = new Image();
         Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
         Control_rod = new ImgComponent(0, GameArea.canvas.height - Control_rod_img.height, 0, 0, Control_rod_img);  
+        var Shoot_icon_img = new Image();
         Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
         Shoot_icon = new ImgComponent(0, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
     }
