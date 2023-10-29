@@ -44,12 +44,14 @@ class Component{
 }
 
 class ImgComponent extends Component{
-    constructor(width, height, x, y, speedX, speedY, img) {
+    constructor(width, height, x, y, speedX, speedY, img, globalAlpha) {
         super(width, height, x, y, speedX, speedY);
         this.img = img;
+        this.globalAlpha = globalAlpha;
     }
     update() {
         let ctx = GameArea.context;
+        ctx.globalAlpha = this.globalAlpha;
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 }

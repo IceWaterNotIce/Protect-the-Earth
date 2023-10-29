@@ -126,18 +126,18 @@ function startgame(){
     GameArea.start();
     PlaneImg.src = PlaneImgUrls[0];
     PlaneImg.onload = () => {
-        plane = new Plane(PlaneImg.width, PlaneImg.height, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 4, 5);
+        plane = new Plane(PlaneImg.width, PlaneImg.height, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 1, 4, 5);
     }
     if (deviceType == "Mobile"){
         Control_rod_img = new Image();
         Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
         Control_rod_img.onload = () => {
-            Control_rod = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, 0, GameArea.canvas.height - GameArea.canvas.width/2, 0, 0, Control_rod_img); 
+            Control_rod = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, 0, GameArea.canvas.height - GameArea.canvas.width/2, 0, 0, Control_rod_img,0.5); 
         }
         Shoot_icon_img = new Image();
         Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
         Shoot_icon_img.onload = () => {
-            Shoot_icon = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
+            Shoot_icon = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img,0.5);
         }
     }
     GameScore = new TextComponent(0, 0, 2*GameArea.canvas.width/4, 50, 0, 0, "text", "#000000", "40px Arial");
@@ -198,7 +198,7 @@ function loop(){
         RubbishImg.src = RubbishPlasticImgUrls[Math.floor(Math.random() * RubbishPlasticImgUrls.length)];
         RubbishImg.onload = () => {
             let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
-            Rubbishs.push(new Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 15));
+            Rubbishs.push(new Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 1, 15));
             //console.log("Created Rubbish");
             // delete rubbish if it collide with other rubbish
             for (let j = 0; j < Rubbishs.length - 1; j += 1) {

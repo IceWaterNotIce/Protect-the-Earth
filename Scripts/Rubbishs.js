@@ -38,8 +38,8 @@ var RubbishPlasticImgUrls = [ "Image\\Rubbishs\\Plastics\\Bag_1.png",
 var Rubbishs = [];
 
 class Rubbish extends ImgComponent{
-    constructor(width, height, x, y, speedX, speedY, img, Maxlife) {
-        super(width, height, x, y, speedX, speedY, img);
+    constructor(width, height, x, y, speedX, speedY, img, globalAlpha, Maxlife) {
+        super(width, height, x, y, speedX, speedY, img, globalAlpha);
         this.life = Maxlife;
         this.Maxlife = Maxlife;
       }

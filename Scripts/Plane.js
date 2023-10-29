@@ -11,8 +11,8 @@ var HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
 
 class Plane extends ImgComponent{
-    constructor(width, height, x, y, speedX, speedY, img, life, attack) {
-        super(width, height, x, y, speedX, speedY, img);
+    constructor(width, height, x, y, speedX, speedY, img, globalAlpha, life, attack) {
+        super(width, height, x, y, speedX, speedY, img, globalAlpha);
         this.life = life;
         this.attack = attack;
         this.MoveRight = false;
