@@ -104,7 +104,9 @@ function process(ev) {
             plane.StartShootingInterval();
             break;
         }
-        if(i == ev.touches.length - 1){
+        if(!(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
+            && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height) 
+            && i == ev.touches.length - 1 && plane.ShootingInterval){
             clearInterval(plane.ShootingInterval);
             plane.ShootingInterval = null;
         }
