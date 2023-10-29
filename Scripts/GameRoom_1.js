@@ -89,6 +89,17 @@ function startgame(){
     GameArea.start();
     PlaneImg.src = PlaneImgUrls[0];
     plane = new Plane(0, 0, GameArea.canvas.width/2, 2*GameArea.canvas.height/3, 0, 0, PlaneImg, 4, 5);
+    if (deviceType == "Mobile"){
+        var Control_rod_img = new Image();
+        Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
+        Control_rod_img.onload = () => {
+            var Control_rod = new ImgComponent(0, GameArea.canvas.height - Control_rod_img.height, 0, 0, Control_rod_img);
+        }  
+        Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
+        Shoot_icon_img.onload = () => {
+            var Shoot_icon = new ImgComponent(0, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img);
+        }  
+    }
     GameScore = new TextComponent(0, 0, 2*GameArea.canvas.width/4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
 }
@@ -180,6 +191,8 @@ function loop(){
         ctx = GameArea.context;
         ctx.drawImage(HeartImg, 10+HeartImg.width*i, 10);
     }
+    Control_rod.update();
+    Shoot_icon.update();
     GameScore.text = "SCORE: " + GameScore.score;
     GameScore.update();
     //#endregion
