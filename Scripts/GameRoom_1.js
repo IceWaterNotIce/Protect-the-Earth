@@ -70,44 +70,47 @@ document.addEventListener("keyup", function(e){
     e.preventDefault();
 })
 
-GameArea.canvas.addEventListener("touchstart", startprocess, false);
-GameArea.canvas.addEventListener("touchcancel", endprocess, false);
-GameArea.canvas.addEventListener("touchend", endprocess, false);
-function startprocess(ev) {
+GameArea.canvas.addEventListener("touchstart", process, false);
+GameArea.canvas.addEventListener("touchcancel", process, false);
+GameArea.canvas.addEventListener("touchend", process, false);
+function process(ev) {
     console.log(ev.touches);
-    
+    plane.MoveRight = false;
+    plane.MoveLeft = false;
     // Use the event's data to call out to the appropriate gesture handlers
     for(let i = 0; i < ev.touches.length; i += 1){
         if(ev.touches[i].clientX > Control_rod.x && ev.touches[i].clientX < (Control_rod.x + Control_rod.width /2)
             && ev.touches[i].clientY > Control_rod.y && ev.touches[i].clientY < (Control_rod.y + Control_rod.height) )
         {
-            
             plane.MoveRight = true;
             plane.MoveLeft = false;
+            break;
         }
+    }
+    for(let i = 0; i < ev.touches.length; i += 1){
         if(ev.touches[i].clientX > (Control_rod.x + Control_rod.width/2) && ev.touches[i].clientX < Control_rod.x + Control_rod.width
             && ev.touches[i].clientY > Control_rod.y && ev.touches[i].clientY < Control_rod.y + Control_rod.height )
         {
             plane.MoveRight = false;
             plane.MoveLeft = true;
+            break;
         }
+    }
+    for(let i = 0; i < ev.touches.length; i += 1){
         if(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
             && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height 
             && !plane.ShootingInterval)
         {
             plane.StartShootingInterval();
+            break;
+        }
+        if(i == ev.touches.length - 1){
+            clearInterval(plane.ShootingInterval);
+            plane.ShootingInterval = null;
         }
     }
     ev.preventDefault();
-  }
-function endprocess(ev) {
-    console.log(ev.touches);
-    plane.MoveRight = false;
-    plane.MoveLeft = false;
-    clearInterval(plane.ShootingInterval);
-    plane.ShootingInterval = null;
-    ev.preventDefault();
-  }
+}
 //#endregion
 
 //#region Game function
