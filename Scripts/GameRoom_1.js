@@ -74,16 +74,19 @@ GameArea.canvas.addEventListener("touchstart", startprocess, false);
 GameArea.canvas.addEventListener("touchcancel", endprocess, false);
 GameArea.canvas.addEventListener("touchend", endprocess, false);
 function startprocess(ev) {
+    console.log(ev.touches);
+    
     // Use the event's data to call out to the appropriate gesture handlers
     for(let i = 0; i < ev.touches.length; i += 1){
-        if(ev.touches[i].clientX > Control_rod_img.x && ev.touches[i].clientX < Control_rod_img.x + Control_rod_img.width /2
-            && ev.touches[i].clientY > Control_rod_img.y && ev.touches[i].clientY < Control_rod_img.y + Control_rod_img.height )
+        if(ev.touches[i].clientX > Control_rod.x && ev.touches[i].clientX < (Control_rod.x + Control_rod.width /2)
+            && ev.touches[i].clientY > Control_rod.y && ev.touches[i].clientY < (Control_rod.y + Control_rod.height) )
         {
+            
             plane.MoveRight = true;
             plane.MoveLeft = false;
         }
-        if(ev.touches[i].clientX > Control_rod_img.x + Control_rod_img.width/2 && ev.touches[i].clientX < Control_rod_img.x + Control_rod_img.width
-            && ev.touches[i].clientY > Control_rod_img.y && ev.touches[i].clientY < Control_rod_img.y + Control_rod_img.height )
+        if(ev.touches[i].clientX > (Control_rod.x + Control_rod.width/2) && ev.touches[i].clientX < Control_rod.x + Control_rod.width
+            && ev.touches[i].clientY > Control_rod.y && ev.touches[i].clientY < Control_rod.y + Control_rod.height )
         {
             plane.MoveRight = false;
             plane.MoveLeft = true;
@@ -126,7 +129,7 @@ function startgame(){
         Control_rod_img = new Image();
         Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
         Control_rod_img.onload = () => {
-            Control_rod = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, 0, GameArea.canvas.height - GameArea.canvas.width/2, 0, 0, Control_rod_img);  
+            Control_rod = new ImgComponent(GameArea.canvas.width/2, GameArea.canvas.width/2, 0, GameArea.canvas.height - GameArea.canvas.width/2, 0, 0, Control_rod_img); 
         }
         Shoot_icon_img = new Image();
         Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
