@@ -6,7 +6,7 @@ var PlaneCanShoot;
 var PlaneImgUrls = ["Image\\Plane\\Plane_1.png","Image\\Plane\\Plane_2.png","Image\\Plane\\Plane_3.png"];
 var PlaneImg = new Image();
 
-var HeartImgUrl = "Resources\\Heart.png";
+var HeartImgUrl = "Image\\UI\\Heart.png";
 var HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
 
