@@ -19,7 +19,6 @@ class Plane extends ImgComponent{
         this.MoveLeft = false;
         this.CanShoot = false;
         this.ShootingInterval = null;
-        console.log(this.width);
       }
     newPos(){
         super.newPos();
