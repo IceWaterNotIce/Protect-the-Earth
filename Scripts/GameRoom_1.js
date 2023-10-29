@@ -247,9 +247,9 @@ function loop(){
     }
     let context = GameArea.canvas.getContext("2d"); 
     context.font = GameScore.textFont;
-    let metrics = context.measureText(text);
-    GameScore.x = GameArea.canvas.width - metrics.width;
     GameScore.text = "SCORE: " + GameScore.score;
+    let metrics = context.measureText(GameScore.text);
+    GameScore.x = GameArea.canvas.width - metrics.width;
     GameScore.update();
     //#endregion
 }
