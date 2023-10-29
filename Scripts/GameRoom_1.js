@@ -39,6 +39,7 @@ var GameArea = {
 var Control_rod;
 var Shoot_icon;
 var GameScore;
+var plane;
 //#endregion
 
 //#region Plane control
