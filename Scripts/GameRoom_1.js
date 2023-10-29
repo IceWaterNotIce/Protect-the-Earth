@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var Control_rod;
 var Shoot_icon;
+var GameScore;
 
 function startgame(){        
     GameArea.start();
