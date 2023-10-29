@@ -100,25 +100,24 @@ function process(ev) {
             break;
         }
     }
+    var planeShoot = false;
     for(let i = 0; i < ev.touches.length; i += 1){
+        if(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
+            && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height )
+        {
+            planeShoot = true;
+        }
         if(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
             && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height 
             && !plane.ShootingInterval)
-        {
+        {      
             plane.StartShootingInterval();
             break;
-        }
-        if(!(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
-            && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height) 
-            && i == ev.touches.length - 1 && plane.ShootingInterval){
-            console.log(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
-                && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height);
-            console.log(!(ev.touches[i].clientX > Shoot_icon.x && ev.touches[i].clientX < Shoot_icon.x +Shoot_icon.width
-                && ev.touches[i].clientY > Shoot_icon.y && ev.touches[i].clientY < Shoot_icon.y +Shoot_icon.height));
-            console.log(i == ev.touches.length - 1 && plane.ShootingInterval);
-            clearInterval(plane.ShootingInterval);
-            plane.ShootingInterval = null;
-        }
+        }     
+    }
+    if (!planeShoot){
+        clearInterval(plane.ShootingInterval);
+        plane.ShootingInterval = null;
     }
     ev.preventDefault();
 }
