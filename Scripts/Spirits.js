@@ -28,13 +28,13 @@ class Component{
     }
     crashWith(otherobj) {
         var myleft = this.x;
-        var myright = this.x + (this.img.width);
+        var myright = this.x + (this.width);
         var mytop = this.y;
-        var mybottom = this.y + (this.img.height);
+        var mybottom = this.y + (this.height);
         var otherleft = otherobj.x;
-        var otherright = otherobj.x + (otherobj.img.width);
+        var otherright = otherobj.x + (otherobj.width);
         var othertop = otherobj.y;
-        var otherbottom = otherobj.y + (otherobj.img.height);
+        var otherbottom = otherobj.y + (otherobj.height);
         var crash = true;
         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
             crash = false;
@@ -44,9 +44,19 @@ class Component{
 }
 
 class ImgComponent extends Component{
-    constructor(width, height, x, y, speedX, speedY, img) {
-        super(width, height, x, y, speedX, speedY);
+    constructor(x, y, speedX, speedY, img) {
+        super(0, 0, x, y, speedX, speedY);
         this.img = img;
+
+        // Add an event listener for the 'load' event
+        this.img.onload = () => {
+            // Once the image is loaded, update the width and height properties
+            this.width = this.img.width;
+            this.height = this.img.height;
+
+            // Call the parent class constructor after the image is loaded
+            super(this.width, this.height, x, y, speedX, speedY);
+        }
     }
     update() {
         let ctx = GameArea.context;

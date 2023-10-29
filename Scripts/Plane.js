@@ -12,13 +12,14 @@ HeartImg.src = HeartImgUrl;
 
 class Plane extends ImgComponent{
     constructor(width, height, x, y, speedX, speedY, img, life, attack) {
-        super(width, height, x, y, speedX, speedY, img);
+        super(x, y, speedX, speedY, img);
         this.life = life;
         this.attack = attack;
         this.MoveRight = false;
         this.MoveLeft = false;
         this.CanShoot = false;
         this.ShootingInterval = null;
+        console.log(this.width);
       }
     newPos(){
         super.newPos();
@@ -32,23 +33,18 @@ class Plane extends ImgComponent{
         else if(this.MoveLeft == true){
             this.x += 10;
             //console.log(this.x);
-            if (this.x > GameArea.canvas.width-this.img.width){
-                this.x = GameArea.canvas.width-this.img.width;
+            if (this.x > GameArea.canvas.width-this.width){
+                this.x = GameArea.canvas.width-this.width;
             }
         }
     }
     update(){
         super.update();
-        let ctx = GameArea.context;
-        if (this.life > 0){
-            ctx.fillStyle = "#FF0000";
-            ctx.fillRect(this.x, this.y-5, this.img.width * this.life/this.totallife, 2);
-        }
         //console.log(this.CanShoot);
         if (this.CanShoot == true){
             Bullets.push(new Bullet(5,   
                                     20, 
-                                    this.x+(this.img.width-5)/2, 
+                                    this.x+(this.width-5)/2, 
                                     this.y-20,
                                     0,
                                     -3,

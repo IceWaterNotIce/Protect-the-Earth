@@ -34,12 +34,12 @@ var RubbishPlasticImgUrls = [ "Image\\Rubbishs\\Plastics\\Bag_1.png",
                             "Image\\Rubbishs\\Plastics\\Straw_1.png",
                             "Image\\Rubbishs\\Plastics\\Toothbrush_1.png"];
 
-var RubbishImg = new Image();
+
 var Rubbishs = [];
 
 class Rubbish extends ImgComponent{
     constructor(width, height, x, y, speedX, speedY, img, Maxlife) {
-        super(width, height, x, y, speedX, speedY, img);
+        super(x, y, speedX, speedY, img);
         this.life = Maxlife;
         this.Maxlife = Maxlife;
       }
@@ -48,7 +48,7 @@ class Rubbish extends ImgComponent{
         let ctx = GameArea.context;
         if (this.life > 0){
             ctx.fillStyle = "#FF0000";
-            ctx.fillRect(this.x, this.y-5, this.img.width * this.life/this.Maxlife, 2);
+            ctx.fillRect(this.x, this.y-5, this.width * this.life/this.Maxlife, 2);
         }
     }
 }
