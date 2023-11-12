@@ -206,7 +206,7 @@ function loop(){
         let RubbishImg = new Image();
         RubbishImg.src = RubbishMetalImgUrls[Math.floor(Math.random() * RubbishMetalImgUrls.length)];
         RubbishImg.onload = () => {
-            let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
+            let x = Math.floor(Math.random()*(GameArea.canvas.width-plane.width+1)+plane.width/2);
             Rubbishs.push(new Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 1, 15));
             //console.log("Created Rubbish");
             // delete rubbish if it collide with other rubbish
