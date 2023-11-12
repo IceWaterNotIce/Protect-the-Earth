@@ -204,7 +204,7 @@ function loop(){
     //#region Create
     if ( Rubbishs.length < 2||Math.floor(Math.random()*80) == 2) {
         let RubbishImg = new Image();
-        RubbishImg.src = RubbishPlasticImgUrls[Math.floor(Math.random() * RubbishPlasticImgUrls.length)];
+        RubbishImg.src = RubbishMetalImgUrls[Math.floor(Math.random() * RubbishMetalImgUrls.length)];
         RubbishImg.onload = () => {
             let x = Math.floor(Math.random()*(GameArea.canvas.width-2*RubbishImg.width+1)+RubbishImg.width);
             Rubbishs.push(new Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 1, 15));
