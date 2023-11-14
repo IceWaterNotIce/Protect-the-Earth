@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url("..\\Image\\Background\\00000-704700384-pixel  art,Blood Mist, background Urban rooftop,despair,Blood Cherry Blossom,torn clothes,crying with eyes open,solo,Blood Rain,.jpg");
+    background-repeat: no-repeat;
+    background-position: 30% 60%;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#img_start {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    display: block;
+}
+
+#div_text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 55%;
+    background-color: rgba(168, 109, 109, 0.55);
+    border-radius: 50px;
+    display: none;
+    padding: 8% 5% 5% 5%;
+    font-size: 50px;
+    font-family: "微軟正黑體";
+    text-shadow: 0 0 10px #000000;
+}
+
+#div_teach {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}

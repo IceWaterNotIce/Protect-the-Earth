@@ -125,10 +125,6 @@ function process(ev) {
 //#endregion
 
 //#region Game function
-document.addEventListener("DOMContentLoaded", function() {
-    startgame();
-});
-
 
 
 function startgame(){        
