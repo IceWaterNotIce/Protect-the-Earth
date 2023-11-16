@@ -8,9 +8,7 @@
   </head>
   <body>
     <img id="img_start" src="./Image/UI/遊戲開始icon.gif" alt="Game start" />
-    <div id="div_text">
-      環保活動家與企業共同投入更多資源，推動科技創新，使其應用範圍擴展到更多領域。社區進入全面可持續發展的時代，擁有了先進的環境基礎設施。然而，這場轉變還需要解決一些全球性的挑戰，如氣候變化和資源不均衡。全球合作成為維護新世界平衡的不可或缺的一環。
-    </div>
+    <div id="div_text"></div>
     <div id="div_teach">
       A : 左移<br />
       D : 右移<br />
@@ -25,36 +23,15 @@
     <script>
       // 通過播放背景音樂、顯示遊戲介紹文字，然後在文字顯示完畢後開始遊戲，初始化遊戲。
       var bgAudio;
+      var gamelevel = 0;
       document.addEventListener("DOMContentLoaded", function () {
         bgAudio = new Audio("Audios/BGM_Start_UI.mp3");
         bgAudio.play();
       });
+
       document.getElementById("img_start").addEventListener("click", function () {
         document.getElementById("img_start").style.display = "none";
-        document.getElementById("div_text").style.display = "block";
-        var text = document.getElementById("div_text").innerText;
-        var chars = Array.from(text);
-        var index = 0;
-        document.getElementById("div_text").innerText = "";
-        var intervalId = setInterval(function () {
-          if (index < chars.length) {
-            document.getElementById("div_text").innerText += chars[index];
-            index++;
-          } else {
-            clearInterval(intervalId);
-            setTimeout(function () {
-              document.getElementById("div_text").style.display = "none";
-              document.getElementById("div_teach").style.display = "block";
-              setTimeout(function () {
-                document.getElementById("div_teach").style.display = "none";
-                bgAudio.pause();
-                bgAudio = new Audio("Audios/BGM_Lv1.mp3");
-                bgAudio.play();
-                startgame();
-              }, 2000);
-            }, 2000);
-          }
-        }, 70);
+        startgame();
       });
     </script>
   </body>
