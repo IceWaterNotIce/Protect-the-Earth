@@ -291,36 +291,37 @@ function endgame(winbool) {
     GameArea.clear();
     // delete GameArea.canvas
     document.body.removeChild(GameArea.canvas);
-    if (winbool == false){
+    if (winbool == false) {
         // url go index
         gamelevel -= 1;
         document.getElementById("div_gameover").style.display = 'block';
     }
-    if (gamelevel == 3) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./plot/plot_" + 4 + ".txt", true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var text = xhr.responseText;
-                var chars = Array.from(text);
-                var index = 0;
-                document.getElementById("div_text").style.display = 'block';
-                document.getElementById("div_text").innerText = '';
-                var intervalId = setInterval(function () {
-                    if (index < chars.length) {
-                        document.getElementById("div_text").innerText += chars[index];
-                        index++;
-                    } else {
-                        clearInterval(intervalId);
-                    }
-                }, 70);
+    if (winbool == true) {
+        if (gamelevel == 3) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "./plot/plot_" + 4 + ".txt", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var text = xhr.responseText;
+                    var chars = Array.from(text);
+                    var index = 0;
+                    document.getElementById("div_text").style.display = 'block';
+                    document.getElementById("div_text").innerText = '';
+                    var intervalId = setInterval(function () {
+                        if (index < chars.length) {
+                            document.getElementById("div_text").innerText += chars[index];
+                            index++;
+                        } else {
+                            clearInterval(intervalId);
+                        }
+                    }, 70);
+                }
             }
+            xhr.send();
+        } else {
+            startgame();
         }
-        xhr.send();
-    }else{
-        startgame();
     }
-
 }
 
 
