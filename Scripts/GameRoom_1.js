@@ -34,7 +34,7 @@ var GameArea = {
         this.interval = setInterval(loop, 20);
 
         this.life = setTimeout(() => {
-            endgame(true)
+            endgame(true);
         }, 3 * 60 * 1000);
     },
     clear: function () {
@@ -141,6 +141,8 @@ function startgame() {
             var index = 0;
             document.getElementById("div_text").style.display = 'block';
             document.getElementById("div_text").innerText = '';
+            keyboardaudio = new Audio("Audios/Keyboard_Typing_Fast.mp3");
+            keyboardaudio.play();
             var intervalId = setInterval(function () {
                 if (index < chars.length) {
                     document.getElementById("div_text").innerText += chars[index];
@@ -151,6 +153,7 @@ function startgame() {
                         document.getElementById("div_text").style.display = "none";
                         bgAudio.pause();
                         bgAudio = new Audio("Audios/BGM_Lv" + gamelevel + ".mp3");
+
                         bgAudio.play();
 
                         GameArea.start();
