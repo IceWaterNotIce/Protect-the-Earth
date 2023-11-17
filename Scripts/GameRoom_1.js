@@ -32,6 +32,10 @@ var GameArea = {
         // 
         this.canvas.style.border = "1px solid";
         this.interval = setInterval(loop, 20);
+
+        this.life = setTimeout(() => {
+            endgame(true)
+        }, 3 * 60 * 1000);
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -204,7 +208,7 @@ function loop() {
             plane.life -= 1;
             Rubbishs.splice(j, 1);
             if (plane.life == 0) {
-                endgame();
+                endgame(false);
             }
             break;
         }
@@ -279,11 +283,16 @@ function loop() {
     //#endregion
 }
 
-function endgame() {
+function endgame(winbool) {
     clearInterval(GameArea.interval);
     GameArea.clear();
     // delete GameArea.canvas
     document.body.removeChild(GameArea.canvas);
+    if (winbool == false){
+        // url go index
+        gamelevel -= 1;
+        document.getElementById("div_gameover").style.display = 'block';
+    }
     if (gamelevel == 3) {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "./plot/plot_" + 4 + ".txt", true);

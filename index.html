@@ -14,6 +14,16 @@
       D : 右移<br />
       space : 射擊<br />
     </div>
+    <div id="div_gameover">
+      Game Over<br />
+      <button id="btn_restart">Restart</button>
+    </div>
+    <script>
+      document.getElementById("btn_restart").addEventListener("click", function () {
+        document.getElementById("div_gameover").style.display = "none";
+        startgame();
+      });
+    </script>
     <script src="./Scripts/devicetype.js"></script>
     <script src="./Scripts/Spirits.js"></script>
     <script src="./Scripts/Plane.js"></script>
