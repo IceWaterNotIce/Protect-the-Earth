@@ -130,59 +130,31 @@ function process(ev) {
 
 function startgame() {
 
-    gamelevel += 1;
-    //#region show plot
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "./plot/plot_" + gamelevel + ".txt", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var text = xhr.responseText;
-            var chars = Array.from(text);
-            var index = 0;
-            document.getElementById("div_text").style.display = 'block';
-            document.getElementById("div_text").innerText = '';
-            keyboardaudio = new Audio("Audios/Keyboard_Typing_Fast.mp3");
-            keyboardaudio.play();
-            var intervalId = setInterval(function () {
-                if (index < chars.length) {
-                    document.getElementById("div_text").innerText += chars[index];
-                    index++;
-                } else {
-                    clearInterval(intervalId);
-                    setTimeout(function () {
-                        document.getElementById("div_text").style.display = "none";
-                        bgAudio.pause();
-                        bgAudio = new Audio("Audios/BGM_Lv" + gamelevel + ".mp3");
-
-                        bgAudio.play();
-
-                        GameArea.start();
-                        PlaneImg.src = PlaneImgUrls[0];
-                        PlaneImg.onload = () => {
-                            plane = new Plane(PlaneImg.width, PlaneImg.height, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
-                        }
-                        if (deviceType == "Mobile") {
-                            Control_rod_img = new Image();
-                            Control_rod_img.src = "Image\\UI\\Control_rod_1.png";
-                            Control_rod_img.onload = () => {
-                                Control_rod = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
-                            }
-                            Shoot_icon_img = new Image();
-                            Shoot_icon_img.src = "Image\\UI\\Shoot_icon_1.PNG";
-                            Shoot_icon_img.onload = () => {
-                                Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
-                            }
-                        }
-                        GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "40px Arial");
-                        GameScore.score = 0;
-                    }, 2000);
-                }
-            }, 75);
-
-
+    document.body.innerHTML = "";
+    bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
+    bgAudio.loop = true;
+    bgAudio.volume = 0.1;
+    bgAudio.play();
+    GameArea.start();
+    PlaneImg.src = PlaneImgUrls[0];
+    PlaneImg.onload = () => {
+        plane = new Plane(PlaneImg.width-50, PlaneImg.height-50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
+    }
+    if (deviceType == "Mobile") {
+        Control_rod_img = new Image();
+        Control_rod_img.src = "..\\..\\assets/img\\UI\\Control_rod_1.png";
+        Control_rod_img.onload = () => {
+            Control_rod = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
+        }
+        Shoot_icon_img = new Image();
+        Shoot_icon_img.src = "..\\..\\assets/img\\UI\\Shoot_icon_1.PNG";
+        Shoot_icon_img.onload = () => {
+            Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
         }
     }
-    xhr.send();
+    GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "40px Arial");
+    GameScore.score = 0;
+
 }
 
 function loop() {
@@ -196,6 +168,9 @@ function loop() {
             if (Bullets[i].crashWith(Rubbishs[j]) == true) {
                 Rubbishs[j].life -= Bullets[i].attack;
                 GameScore.score += Bullets[i].attack;
+                if(GameScore.score >= 500){
+                    endgame(true);
+                }
                 Bullets.splice(i, 1);
                 if (Rubbishs[j].life <= 0) {
                     Rubbishs.splice(j, 1);
@@ -288,41 +263,42 @@ function loop() {
 
 function endgame(winbool) {
     clearInterval(GameArea.interval);
-    GameArea.clear();
-    // delete GameArea.canvas
-    document.body.removeChild(GameArea.canvas);
+    // //delete GameArea.canvas
     if (winbool == false) {
-        // url go index
-        gamelevel -= 1;
-        document.getElementById("div_gameover").style.display = 'block';
+        //add new text component to show game over
+        GameEndRect = new RectComponent(GameArea.canvas.width, GameArea.canvas.height, 0, 0, 0, 0, "#FFFFFF", 0.5);
+        GameEndRect.update();
+        GameEnd = new TextComponent(0, 0, GameArea.canvas.width / 2-100, GameArea.canvas.height / 2, 0, 0, "text", "#000000", "40px Arial");
+        GameEnd.text = "Game Over";
+        GameEnd.update();
+        //add new button to restart game
+        var btn = document.createElement("button");
+        btn.innerHTML = "Restart";
+        btn.style.position = "fixed";
+        btn.style.left = window.innerWidth / 2 - 50 + "px";
+        btn.style.top = GameArea.canvas.height / 2 + 50 + "px";
+        btn.style.width = "100px";
+        btn.style.height = "50px";
+        btn.style.fontSize = "20px";
+        btn.style.backgroundColor = "#FFFFFF";
+        btn.style.border = "1px solid";
+        btn.style.borderRadius = "5px";
+        btn.style.cursor = "pointer";
+        btn.style.zIndex = "2";
+        document.body.appendChild(btn);
+        btn.onclick = function () {
+            GameArea.clear();
+            document.body.removeChild(GameArea.canvas);
+            startgame();
+        };
     }
     if (winbool == true) {
-        if (gamelevel == 3) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "./plot/plot_" + 4 + ".txt", true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    var text = xhr.responseText;
-                    var chars = Array.from(text);
-                    var index = 0;
-                    document.getElementById("div_text").style.display = 'block';
-                    document.getElementById("div_text").innerText = '';
-                    var intervalId = setInterval(function () {
-                        if (index < chars.length) {
-                            document.getElementById("div_text").innerText += chars[index];
-                            index++;
-                        } else {
-                            clearInterval(intervalId);
-                        }
-                    }, 70);
-                }
-            }
-            xhr.send();
-        } else {
-            startgame();
-        }
+        gamelevel = parseInt(gamelevel) + 1;
+        window.location.href = "../plots/plot_" + gamelevel + ".html";
     }
+
 }
 
 
 //#endregion
+         

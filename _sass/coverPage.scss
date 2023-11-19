@@ -1,0 +1,27 @@
+div.coverpage {
+    position: absolute;
+    left: 50%;
+    width: 500px;
+    height: 100vh;
+    transform: translate(-50%);
+}
+
+.coverpage img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    top: 70%;
+    height: 20%;
+}
+
+.coverpage h1 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10%;
+    font-size: 50px;
+    color: white;
+    font-family: '微軟正黑體';
+    text-align: center;
+
+}

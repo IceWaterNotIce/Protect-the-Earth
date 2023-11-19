@@ -3,10 +3,10 @@ var PlaneLife = 4;
 var PlaneAttack = 5;
 var PlaneShootingInterval;
 var PlaneCanShoot;
-var PlaneImgUrls = ["Image\\Plane\\Plane_1.png", "Image\\Plane\\Plane_2.png", "Image\\Plane\\Plane_3.png"];
+var PlaneImgUrls = ["../assets/img\\Plane\\Plane_1.png", "../assets/img\\Plane\\Plane_2.png", "../assets/img\\Plane\\Plane_3.png"];
 var PlaneImg = new Image();
 
-var HeartImgUrl = "Image\\UI\\Heart_1.png";
+var HeartImgUrl = "..\\assets/img\\UI\\Heart_1.png";
 var HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
 

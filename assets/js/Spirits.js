@@ -72,13 +72,15 @@ class TextComponent extends Component{
 }
 
 class RectComponent extends Component{
-    constructor(width, height, x, y, speedX, speedY, rectRGBColor) {
+    constructor(width, height, x, y, speedX, speedY, rectRGBColor, rectAlpha) {
         super(width, height, x, y, speedX, speedY);
         this.rectRGBColor = rectRGBColor;
+        this.rectAlpha = rectAlpha;
     }
     update = function() {
         let ctx = GameArea.context;
         ctx.fillStyle = this.rectRGBColor;
+        ctx.globalAlpha = this.rectAlpha;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
