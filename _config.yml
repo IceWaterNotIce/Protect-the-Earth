@@ -6,9 +6,10 @@ static_dir: assets
 sass:
   sass_dir: _sass
   style: expanded 
+url: http://127.0.0.1:4000
+WebsiteUrl: "http://127.0.0.1:4000"
+WebsiteBaseurl: "/Protect-the-Earth"
 repository: IceWaterNotIce/Protect-the-Earth
 collections:
   plots:
-    output: true
-  games:
     output: true

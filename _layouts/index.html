@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX2NLVYJE8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RX2NLVYJE8');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Home</title>
+  <link rel="stylesheet" href="{{ site.WebsiteUrl }}/assets/css/index.css" />
+  <script src="../assets/js/devicetype.js"></script>
+  <script src="../assets/js/Spirits.js"></script>
+  <script src="../assets/js/Plane.js"></script>
+  <script src="../assets/js/Rubbishs.js"></script>
+  <script src="../assets/js/Bullets.js"></script>
+  <script src="../assets/js/GameRoom.js"></script>
+  <script src="../assets/js/index.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+  <script>
+    index = 1;
+
+    function endplot() {
+      if (index == 4) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', "{{ site.WebsiteUrl }}/gameend.html");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            document.querySelector('main').innerHTML = xhr.responseText;
+          }
+        }
+      }
+      else {
+        document.getElementsByTagName("p")[0].style.display = "none";
+        keyboardaudio.pause();
+        startgame(index);
+      }
+    }
+
+    function startplot() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', "{{ site.WebsiteUrl }}/plots/plot_" + index + ".html");
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          document.querySelector('main').innerHTML = xhr.responseText;
+          var textindex = 0;
+          var text = document.getElementsByTagName("p")[0].innerText;
+          var chars = Array.from(text);
+
+          document.getElementsByTagName("p")[0].innerText = '';
+          keyboardaudio = new Audio("{{ site.WebsiteUrl }}/assets/audio/Keyboard_Typing_Fast.mp3");
+          keyboardaudio.volume = 1;
+          keyboardaudio.play();
+
+          var intervalId = setInterval(function () {
+            if (textindex < chars.length) {
+              document.getElementsByTagName("p")[0].innerText += chars[textindex];
+              textindex++;
+            } else {
+              clearInterval(intervalId);
+              setTimeout(function () {
+                endplot();
+              }, 2000);
+            }
+          }, 75);
+
+          document.getElementById("plotJumpBtn").addEventListener("click", function () {
+            clearInterval(intervalId);
+            document.getElementsByTagName("p")[0].innerText = text;
+            endplot();
+          });
+        }
+      }
+    }
+
+
+
+    // ajax to get coverPage html
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', "{{ site.WebsiteUrl }}/coverPage.html");
+    xhr.send();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        document.querySelector('main').innerHTML = xhr.responseText;
+      }
+    }
+  </script>
+</body>
+
+</html>
