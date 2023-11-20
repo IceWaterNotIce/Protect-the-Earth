@@ -8,7 +8,7 @@ var PlaneCanShoot;
 var PlaneImgUrls = ["{{ site.url }}{{ site.baseurl }}/assets/img\\plane\\Plane_1.png", "{{ site.url }}{{ site.baseurl }}/assets/img\\plane\\Plane_2.png", "{{ site.url }}{{ site.baseurl }}/assets/img\\plane\\Plane_3.png"];
 var PlaneImg = new Image();
 
-var HeartImgUrl = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Heart_1.png";
+var HeartImgUrl = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\heart.png";
 var HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
 
