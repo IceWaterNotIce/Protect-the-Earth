@@ -46,7 +46,7 @@ class Plane extends ImgComponent {
             Bullets.push(new Bullet(
                 BulletImg.width,
                 BulletImg.height,
-                this.x + (this.width - 5) / 2,
+                this.x + (this.width -  BulletImg.width) / 2,
                 this.y - 20,
                 0,
                 -3,
