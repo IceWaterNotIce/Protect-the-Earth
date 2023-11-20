@@ -9,7 +9,7 @@ function startgame(gamelevel) {
     bgAudio.volume = 0.06;
     bgAudio.play();
 
-    GameArea.start();
+    GameArea.start(gamelevel);
     GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
     // 進度條

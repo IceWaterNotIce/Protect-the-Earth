@@ -1,10 +1,13 @@
-var BulletRGBColor = "#FF00FF";
+---
+---
+
+
 
 var Bullets = [];
 
-class Bullet extends RectComponent{
-    constructor(width, height, x, y, speedX, speedY, rectRGBColor, attack) {
-    super(width, height, x, y, speedX, speedY, rectRGBColor);
+class Bullet extends ImgComponent{
+    constructor(width, height, x, y, speedX, speedY, img, globalAlpha, attack) {
+    super(width, height, x, y, speedX, speedY, img, globalAlpha);
     this.attack = attack;
     }
     update(){

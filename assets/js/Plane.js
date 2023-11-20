@@ -43,13 +43,15 @@ class Plane extends ImgComponent {
         super.update();
         //console.log(this.CanShoot);
         if (this.CanShoot == true) {
-            Bullets.push(new Bullet(5,
-                20,
+            Bullets.push(new Bullet(
+                BulletImg.width,
+                BulletImg.height,
                 this.x + (this.width - 5) / 2,
                 this.y - 20,
                 0,
                 -3,
-                BulletRGBColor,
+                BulletImg,
+                1,
                 this.attack
             ));
             this.CanShoot = false;

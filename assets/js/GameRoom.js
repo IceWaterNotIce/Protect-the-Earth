@@ -5,10 +5,14 @@
 */
 
 //#region Game Vars
+var BulletImg = new Image();
+var BulletImgUrls = ["{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet01.gif",
+ "{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet02.gif",
+  "{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet03.gif"];
 
 var GameArea = {
     canvas: document.createElement("canvas"),
-    start: function () {
+    start: function (gamelevel) {
 
         //console.log("HelloWorld");
         if (deviceType === "Mobile") {
@@ -40,10 +44,11 @@ var GameArea = {
                 Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
             }
         }
-        PlaneImg.src = PlaneImgUrls[0];
+        PlaneImg.src = PlaneImgUrls[gamelevel-1];
         PlaneImg.onload = () => {
             plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
         }
+        BulletImg.src = BulletImgUrls[gamelevel-1];
         // insert canvas to main
         document.getElementsByTagName('main')[0].appendChild(this.canvas);
         document.body.style.textAlign = 'center';
