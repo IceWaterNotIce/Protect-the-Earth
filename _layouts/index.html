@@ -51,7 +51,7 @@
 
     function startplot() {
       var xhr = new XMLHttpRequest();
-      xhr.open('get', "{{ site.url }}{{ site.baseurl }}/plots/plot_" + index + ".html");
+      xhr.open('get', "{{ site.url }}{{ site.baseurl }}/storyline/plot_" + index + ".html");
 
       xhr.send();
       xhr.onreadystatechange = function () {
@@ -88,11 +88,9 @@
       }
     }
 
-
-
     // ajax to get coverPage html
     var xhr = new XMLHttpRequest();
-    xhr.open('get', "{{ site.url }}{{ site.baseurl }}/coverPage.html");
+    xhr.open('get', "{{ site.url }}{{ site.baseurl }}/storyline/coverPage.html");
     xhr.send();
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {

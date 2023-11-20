@@ -9,5 +9,5 @@ sass:
 
 repository: IceWaterNotIce/Protect-the-Earth
 collections:
-  plots:
+  storyline:
     output: true
