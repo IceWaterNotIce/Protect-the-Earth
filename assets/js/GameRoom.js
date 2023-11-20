@@ -96,6 +96,7 @@ document.addEventListener("keyup", function (e) {
         plane.ShootingInterval = null;
     }
     e.preventDefault();
+    endgame(true);
 })
 
 GameArea.canvas.addEventListener("touchstart", process, false);
