@@ -34,7 +34,7 @@
     function endplot() {
       if (index == 4) {
         var xhr = new XMLHttpRequest();
-        xhr.open('get', "{{ site.WebsiteUrl }}/gameend.html");
+        xhr.open('get', "{{ site.url }}{{ site.baseurl }}/gameend.html");
         xhr.send();
         xhr.onreadystatechange = function () {
           if (xhr.readyState == 4 && xhr.status == 200) {
@@ -51,7 +51,7 @@
 
     function startplot() {
       var xhr = new XMLHttpRequest();
-      xhr.open('get', "{{ site.WebsiteUrl }}/plots/plot_" + index + ".html");
+      xhr.open('get', "{{ site.url }}{{ site.baseurl }}/plots/plot_" + index + ".html");
       xhr.send();
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -61,7 +61,7 @@
           var chars = Array.from(text);
 
           document.getElementsByTagName("p")[0].innerText = '';
-          keyboardaudio = new Audio("{{ site.WebsiteUrl }}/assets/audio/Keyboard_Typing_Fast.mp3");
+          keyboardaudio = new Audio("{{ site.url }}{{ site.baseurl }}/assets/audio/Keyboard_Typing_Fast.mp3");
           keyboardaudio.volume = 1;
           keyboardaudio.play();
 
@@ -90,7 +90,7 @@
 
     // ajax to get coverPage html
     var xhr = new XMLHttpRequest();
-    xhr.open('get', "{{ site.WebsiteUrl }}/coverPage.html");
+    xhr.open('get', "{{ site.url }}{{ site.baseurl }}/coverPage.html");
     xhr.send();
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
