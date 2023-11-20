@@ -43,8 +43,11 @@ var GameArea = {
     }
 };
 var Control_rod;
+
 var Shoot_icon;
 var GameScore;
+// 進度條
+var Progress_bar;
 var plane;
 //#endregion
 

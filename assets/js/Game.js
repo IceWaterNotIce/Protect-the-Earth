@@ -24,7 +24,9 @@ function startgame(gamelevel) {
     }
     GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
-
+    // 進度條
+    Progress_bar_background = new RectComponent(GameArea.canvas.width -50, 20, 25, 50, 0, 0, "#FFFFFF", 0.5);
+    Progress_bar = new RectComponent(0, 10, 30, 55, 0, 0, "#000000", 1);
 }
 
 function loop() {
@@ -128,6 +130,10 @@ function loop() {
     let metrics = context.measureText(GameScore.text);
     GameScore.x = GameArea.canvas.width - metrics.width;
     GameScore.update();
+
+    Progress_bar.width =  (GameScore.score / 300) * (GameArea.canvas.width-60);
+    Progress_bar.update();
+    Progress_bar_background.update();
     //#endregion
 }
 
