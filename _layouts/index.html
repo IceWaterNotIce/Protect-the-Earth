@@ -52,9 +52,11 @@
     function startplot() {
       var xhr = new XMLHttpRequest();
       xhr.open('get', "{{ site.url }}{{ site.baseurl }}/plots/plot_" + index + ".html");
+
       xhr.send();
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
+          document.body.style.backgroundImage = "url({{ site.url }}{{ site.baseurl }}/assets/img/background/plot" + index + ".jpg)";
           document.querySelector('main').innerHTML = xhr.responseText;
           var textindex = 0;
           var text = document.getElementsByTagName("p")[0].innerText;
