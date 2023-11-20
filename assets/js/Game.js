@@ -9,7 +9,7 @@ function startgame(gamelevel) {
     PlaneImg.onload = () => {
         plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
     }
-
+    GameArea.start();
     if (deviceType == "Mobile") {
         Control_rod_img = new Image();
         Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
@@ -22,7 +22,6 @@ function startgame(gamelevel) {
             Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
         }
     }
-    GameArea.start();
     GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
     // 進度條
