@@ -5,7 +5,6 @@ function startgame(gamelevel) {
     bgAudio.loop = true;
     bgAudio.volume = 0.1;
     bgAudio.play();
-    GameArea.start();
     PlaneImg.src = PlaneImgUrls[0];
     PlaneImg.onload = () => {
         plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
@@ -27,6 +26,7 @@ function startgame(gamelevel) {
     // 進度條
     Progress_bar_background = new RectComponent(GameArea.canvas.width -50, 20, 25, 50, 0, 0, "#FFFFFF", 0.5);
     Progress_bar = new RectComponent(0, 10, 30, 55, 0, 0, "#000000", 1);
+    GameArea.start();
 }
 
 function loop() {

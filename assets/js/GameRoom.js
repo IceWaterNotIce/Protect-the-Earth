@@ -33,10 +33,6 @@ var GameArea = {
         // 
         this.canvas.style.border = "1px solid";
         this.interval = setInterval(loop, 20);
-
-        this.life = setTimeout(() => {
-            endgame(true);
-        }, 3 * 60 * 1000);
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
