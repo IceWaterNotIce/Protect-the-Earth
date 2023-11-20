@@ -106,7 +106,7 @@ function loop() {
     for (i = 0; i < plane.life; i += 1) {
         //console.log(Planelife);
         ctx = GameArea.context;
-        ctx.drawImage(HeartImg, 10 + HeartImg.width * i, 10);
+        ctx.drawImage(HeartImg, 10 + 50 * i, 10,50,50);
     }
     if (deviceType == "Mobile") {
         //console.log(Control_rod.img);
@@ -117,7 +117,7 @@ function loop() {
     context.font = GameScore.textFont;
     GameScore.text = "SCORE: " + GameScore.score;
     let metrics = context.measureText(GameScore.text);
-    GameScore.x = GameArea.canvas.width - metrics.width;
+    GameScore.x = GameArea.canvas.width - metrics.width-20;
     GameScore.update();
 
     Progress_bar.width =  (GameScore.score / 300) * (GameArea.canvas.width-60);
