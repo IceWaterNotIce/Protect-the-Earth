@@ -14,7 +14,7 @@ function startgame(gamelevel) {
     GameScore.score = 0;
     // 進度條
     Progress_bar_background = new RectComponent(GameArea.canvas.width -50, 20, 25, 60, 0, 0, "#FFFFFF", 0.5);
-    Progress_bar = new RectComponent(0, 10, 30, 65, 0, 0, "#000000", 1);
+    Progress_bar = new RectComponent(0, 16, 30, 62, 0, 0, "#000000", 1);
 
 }
 
