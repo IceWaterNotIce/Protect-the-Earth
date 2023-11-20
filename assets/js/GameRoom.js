@@ -6,9 +6,9 @@
 
 //#region Game Vars
 var BulletImg = new Image();
-var BulletImgUrls = ["{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet01.gif",
- "{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet02.gif",
-  "{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet03.gif"];
+var BulletImgUrls = ["{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet01.png",
+ "{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet02.png",
+  "{{ site.url }}{{ site.baseurl }}/assets/img/bullet/bullet03.png"];
 
 var GameArea = {
     canvas: document.createElement("canvas"),
