@@ -1,7 +1,10 @@
+---
+---
+
 function startgame(gamelevel) {
     console.log(gamelevel);
     document.getElementsByTagName("main")[0].innerHTML = "";
-    bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
+    bgAudio = new Audio("{{ site.url }}{{ site.baseurl }}/assets/audio/BGM_Lv" + gamelevel + ".mp3");
     bgAudio.loop = true;
     bgAudio.volume = 0.1;
     bgAudio.play();
