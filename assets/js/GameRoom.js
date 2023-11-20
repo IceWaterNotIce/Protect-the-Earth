@@ -26,6 +26,22 @@ var GameArea = {
             this.canvas.width = 500;
             this.canvas.height = window.innerHeight;
         }
+        if (deviceType == "Mobile") {
+            Control_rod_img = new Image();
+            Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
+            Control_rod_img.onload = () => {
+                Control_rod = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
+            }
+            Shoot_icon_img = new Image();
+            Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.PNG";
+            Shoot_icon_img.onload = () => {
+                Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
+            }
+        }
+        PlaneImg.src = PlaneImgUrls[0];
+        PlaneImg.onload = () => {
+            plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
+        }
         // insert canvas to main
         document.getElementsByTagName('main')[0].appendChild(this.canvas);
         document.body.style.textAlign = 'center';

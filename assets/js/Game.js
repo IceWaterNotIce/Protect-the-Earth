@@ -5,23 +5,8 @@ function startgame(gamelevel) {
     bgAudio.loop = true;
     bgAudio.volume = 0.1;
     bgAudio.play();
-    PlaneImg.src = PlaneImgUrls[0];
-    PlaneImg.onload = () => {
-        plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
-    }
+
     GameArea.start();
-    if (deviceType == "Mobile") {
-        Control_rod_img = new Image();
-        Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
-        Control_rod_img.onload = () => {
-            Control_rod = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
-        }
-        Shoot_icon_img = new Image();
-        Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.PNG";
-        Shoot_icon_img.onload = () => {
-            Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
-        }
-    }
     GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "40px Arial");
     GameScore.score = 0;
     // 進度條
