@@ -1,12 +1,14 @@
-/**/
+---
+---
+
 var PlaneLife = 4;
 var PlaneAttack = 5;
 var PlaneShootingInterval;
 var PlaneCanShoot;
-var PlaneImgUrls = ["../assets/img\\Plane\\Plane_1.png", "../assets/img\\Plane\\Plane_2.png", "../assets/img\\Plane\\Plane_3.png"];
+var PlaneImgUrls = ["{{ site.url }}{{ site.baseurl }}/assets/img\\Plane\\Plane_1.png", "{{ site.url }}{{ site.baseurl }}/assets/img\\Plane\\Plane_2.png", "{{ site.url }}{{ site.baseurl }}/assets/img\\Plane\\Plane_3.png"];
 var PlaneImg = new Image();
 
-var HeartImgUrl = "..\\assets/img\\UI\\Heart_1.png";
+var HeartImgUrl = "{{ site.url }}{{ site.baseurl }}/assets/img\\UI\\Heart_1.png";
 var HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
 
