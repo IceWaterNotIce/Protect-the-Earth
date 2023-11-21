@@ -1,4 +1,4 @@
 ---
 layout: coverPage
-bgurl: assets\img\background\start.jpg
+bgurl: assets\\img\\background\\start.jpg
 ---

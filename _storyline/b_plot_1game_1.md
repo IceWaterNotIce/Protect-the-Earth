@@ -1,4 +1,4 @@
 ---
 layout: game
-bgurl: assets\img\background\plot1.jpg
+bgurl: assets\\img\\background\\plot1.jpg
 ---
