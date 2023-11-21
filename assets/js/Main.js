@@ -17,7 +17,7 @@ console.log(window.deviceType);
 window.gamelevel;
 var storyLine = localStorage.getItem("storyLine");
 if (storyLine == null || storyLine == NaN) {
-    gamelevel = '1';
+    window.gamelevel = '1';
 }
 
 switch (storyLine) {
