@@ -1,18 +1,11 @@
 ---
 ---
 
-var PlaneLife = 4;
-var PlaneAttack = 5;
-var PlaneShootingInterval;
-var PlaneCanShoot;
-var PlaneImgUrls = ["{{ site.url }}{{ site.baseurl }}/assets/img\\plane\\Plane_1.png", "{{ site.url }}{{ site.baseurl }}/assets/img\\plane\\Plane_2.png", "{{ site.url }}{{ site.baseurl }}/assets/img\\plane\\Plane_3.png"];
-var PlaneImg = new Image();
+import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
+import * as BulletsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Bullets.js";
+import * as UrlsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Urls.js";
 
-var HeartImgUrl = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\heart.png";
-var HeartImg = new Image();
-HeartImg.src = HeartImgUrl;
-
-class Plane extends ImgComponent {
+export class Plane extends SpiritsLib.ImgComponent {
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha, life, attack) {
         super(width, height, x, y, speedX, speedY, img, globalAlpha);
         this.life = life;
@@ -43,10 +36,12 @@ class Plane extends ImgComponent {
         super.update();
         //console.log(this.CanShoot);
         if (this.CanShoot == true) {
-            Bullets.push(new Bullet(
+            var BulletImg = new Image();
+            BulletImg.src = UrlsLib.BulletImgUrls[gamelevel - 1];
+            GameArea.Bullets.push(new BulletsLib.Bullet(
                 BulletImg.width,
                 BulletImg.height,
-                this.x + (this.width -  BulletImg.width) / 2,
+                this.x + (this.width - BulletImg.width) / 2,
                 this.y - 20,
                 0,
                 -3,
@@ -61,7 +56,7 @@ class Plane extends ImgComponent {
         this.ShootingInterval = setInterval(() => {
             this.CanShoot = true;
             //console.log(this.CanShoot);
-        }, 300);
+        }, 600);
     }
 
 }

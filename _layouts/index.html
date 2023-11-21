@@ -15,88 +15,16 @@
   <meta name="viewport" content="width=device-width" />
   <title>Protect The Earth</title>
   <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/base.css" />
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/devicetype.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/Plane.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/Rubbishs.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/Bullets.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/GameRoom.js"></script>
-  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/Game.js"></script>
+  <script type="module" src="{{ site.url }}{{ site.baseurl }}/assets/js/Main.js"></script>
 
 </head>
 
 <body>
   <main>
   </main>
-  <script>
-    index = 1;
-
-    function endplot() {
-      if (index == 4) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('get', "{{ site.url }}{{ site.baseurl }}/gameend.html");
-        xhr.send();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            document.querySelector('main').innerHTML = xhr.responseText;
-          }
-        }
-      }
-      else {
-        document.getElementsByTagName("p")[0].style.display = "none";
-        keyboardaudio.pause();
-        startgame(index);
-      }
-    }
-
-    function startplot() {
-      var xhr = new XMLHttpRequest();
-      xhr.open('get', "{{ site.url }}{{ site.baseurl }}/storyline/plot_" + index + ".html");
-
-      xhr.send();
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          document.body.style.backgroundImage = "url({{ site.url }}{{ site.baseurl }}/assets/img/background/plot" + index + ".jpg)";
-          document.querySelector('main').innerHTML = xhr.responseText;
-          var textindex = 0;
-          var text = document.getElementsByTagName("p")[0].innerText;
-          var chars = Array.from(text);
-
-          document.getElementsByTagName("p")[0].innerText = '';
-          keyboardaudio = new Audio("{{ site.url }}{{ site.baseurl }}/assets/audio/Keyboard_Typing_Fast.mp3");
-          keyboardaudio.volume = 1;
-          keyboardaudio.play();
-
-          var intervalId = setInterval(function () {
-            if (textindex < chars.length) {
-              document.getElementsByTagName("p")[0].innerText += chars[textindex];
-              textindex++;
-            } else {
-              clearInterval(intervalId);
-              setTimeout(function () {
-                endplot();
-              }, 2000);
-            }
-          }, 75);
-
-          document.getElementById("plotJumpBtn").addEventListener("click", function () {
-            clearInterval(intervalId);
-            document.getElementsByTagName("p")[0].innerText = text;
-            endplot();
-          });
-        }
-      }
-    }
-
-    // ajax to get coverPage html
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', "{{ site.url }}{{ site.baseurl }}/storyline/coverPage.html");
-    xhr.send();
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        document.querySelector('main').innerHTML = xhr.responseText;
-      }
-    }
+  <script type="module">
+    import {navigateToStoryLine} from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+    navigateToStoryLine();
   </script>
 </body>
 

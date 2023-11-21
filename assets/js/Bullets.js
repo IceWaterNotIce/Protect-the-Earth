@@ -1,11 +1,9 @@
 ---
 ---
 
+import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
 
-
-var Bullets = [];
-
-class Bullet extends ImgComponent{
+export class Bullet extends SpiritsLib.ImgComponent{
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha, attack) {
     super(width, height, x, y, speedX, speedY, img, globalAlpha);
     this.attack = attack;
