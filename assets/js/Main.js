@@ -14,10 +14,26 @@ window.deviceType = deviceTypeLib.findDeviceType();
 console.log(window.deviceType);
 
 
+window.gamelevel;
+var storyLine = localStorage.getItem("storyLine");
+if (storyLine == null || storyLine == NaN) {
+    gamelevel = '1';
+}
 
-
-
-window.gamelevel = 1;
+switch (storyLine) {
+    case "3":
+        window.gamelevel = 1;
+        break;
+    case "5":
+        window.gamelevel = 2;
+        break;
+    case "7":
+        window.gamelevel = 3;
+        break;
+    default:
+        window.gamelevel = 1;
+        break;
+}
 
 
 
@@ -67,7 +83,7 @@ window.GameArea = {
         var PlaneImg = new Image();
         PlaneImg.src = UrlsLib.PlaneImgUrls[gamelevel - 1];
         PlaneImg.onload = () => {
-            GameArea.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5);
+            GameArea.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
         }
         GameArea.Bullets = [];
         
@@ -86,7 +102,7 @@ window.GameArea = {
     }
 };
 
-GameLib.startgame(gamelevel);
+GameLib.startgame(window.gamelevel);
 
 
 

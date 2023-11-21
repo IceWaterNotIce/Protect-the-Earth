@@ -3,7 +3,7 @@
 
 export function navigateToStoryLine() {
     var storyLine = localStorage.getItem("storyLine");
-    if (storyLine == null) {
+    if (storyLine == null || storyLine == NaN) {
         storyLine = '1';
     }
 

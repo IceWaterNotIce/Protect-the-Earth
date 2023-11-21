@@ -47,7 +47,7 @@ export class Plane extends SpiritsLib.ImgComponent {
                 -3,
                 BulletImg,
                 1,
-                this.attack
+                this.attack 
             ));
             this.CanShoot = false;
         }
