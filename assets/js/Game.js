@@ -74,7 +74,7 @@ export function loop() {
     //#endregion
 
     //#region Create
-    if (GameArea.Rubbishs.length < 2 || Math.floor(Math.random() * 40) == 2) {
+    if (GameArea.Rubbishs.length < 2 || Math.floor(Math.random() * 60) == 2) {
         let RubbishImg = new Image();
         RubbishImg.src = UrlsLib.RubbishMetalImgUrls[Math.floor(Math.random() * UrlsLib.RubbishMetalImgUrls.length)];
         RubbishImg.onload = () => {
