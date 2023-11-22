@@ -56,7 +56,7 @@ export class Plane extends SpiritsLib.ImgComponent {
         this.ShootingInterval = setInterval(() => {
             this.CanShoot = true;
             //console.log(this.CanShoot);
-        }, 600);
+        }, 400);
     }
 
 }

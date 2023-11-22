@@ -33,6 +33,7 @@ export function mobileInput() {
             if (ev.touches[i].clientX > GameArea.Shoot_icon.x && ev.touches[i].clientX < GameArea.Shoot_icon.x + GameArea.Shoot_icon.width
                 && ev.touches[i].clientY > GameArea.Shoot_icon.y && ev.touches[i].clientY < GameArea.Shoot_icon.y + GameArea.Shoot_icon.height
                 && !GameArea.plane.ShootingInterval) {
+                GameArea.plane.CanShoot = true;
                 GameArea.plane.StartShootingInterval();
                 break;
             }
