@@ -25,23 +25,33 @@
     <main>
     </main>
     <div class="plot">
-        <button id="plotSkipBtn"
-            onclick="var storyLine = localStorage.getItem('storyLine');window.location.href='{{ site.url }}{{ site.baseurl }}{{ story.url }}'">Skip</button>
-        <script type="module">
-            import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
-            //select .coverpage img ele
-            var plotSkipBtn = document.querySelector(".plot button");
-            //add event listener to .coverpage img ele
-            plotSkipBtn.addEventListener("click", function () {
-                var storyLine = localStorage.getItem("storyLine");
-                storyLine = parseInt(storyLine) + 1;
-                localStorage.setItem("storyLine", storyLine);
-                navigateToStoryLine();
-            });
-        </script>
         {{ content }}
-
     </div>
+    <video id="plotvid" controls autoplay>
+        <source src="..\\{{page.plvd}}" type="video/webm">
+    </video>
+    <script type="module">
+        import { findDeviceType } from "{{ site.url }}{{ site.baseurl }}/assets/js/deviceType.js";
+        var deviceType = findDeviceType();
+        var plotvid = document.getElementById("plotvid");
+        if (deviceType == "Desktop") {
+            document.body.removeChild(plotvid);
+        }
+    </script>
+    <button id="plotSkipBtn"
+    onclick="var storyLine = localStorage.getItem('storyLine');window.location.href='{{ site.url }}{{ site.baseurl }}{{ story.url }}'">Skip</button>
+    <script type="module">
+        import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+        //select .coverpage img ele
+        var plotSkipBtn = document.querySelector("#plotSkipBtn");
+        //add event listener to .coverpage img ele
+        plotSkipBtn.addEventListener("click", function () {
+            var storyLine = localStorage.getItem("storyLine");
+            storyLine = parseInt(storyLine) + 1;
+            localStorage.setItem("storyLine", storyLine);
+            navigateToStoryLine();
+        });
+    </script>
 </body>
 
 </html>

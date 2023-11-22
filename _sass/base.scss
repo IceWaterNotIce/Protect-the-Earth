@@ -82,10 +82,20 @@ div.coverpage div {
 
 #plotSkipBtn {
     position: absolute;
-    top: 3%;
+    top: 20%;
     right: 2%;
     width: 10%;
     height: 5%;
     background-color: rgba(168, 109, 109, 0.55);
     border-radius: 25px;
+    z-index: 15;
+}
+
+#plotvid{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
 }
