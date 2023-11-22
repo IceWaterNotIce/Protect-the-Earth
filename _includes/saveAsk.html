@@ -1,0 +1,19 @@
+<div class="save-ask-container" style="display: none;">
+    <p>您有已保存的遊戲進度？需要繼續遊戲還是開始新的遊戲進程？</p>
+    <button id="continue">繼續遊戲</button>
+    <button id="new">開始新的遊戲</button>
+</div>
+<script type="module">
+    import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+    //get stoyline from local storage
+    var StoryLine = localStorage.getItem("storyLine");
+    //set stoyline to local storage
+    document.getElementById("continue").addEventListener("click", function () {
+        localStorage.setItem("StoryLine", StoryLine);
+        navigateToStoryLine();
+    });
+    document.getElementById("new").addEventListener("click", function () {
+        localStorage.setItem("storyLine", "1");
+        navigateToStoryLine();
+    });
+</script>
