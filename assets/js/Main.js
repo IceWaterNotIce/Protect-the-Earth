@@ -73,7 +73,7 @@ window.GameArea = {
             }
             GameArea.Shoot_icon;
             var Shoot_icon_img = new Image();
-            Shoot_icon_img.src = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Shoot_icon_1.PNG";
+            Shoot_icon_img.src = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Shoot_icon_1.png";
             Shoot_icon_img.onload = () => {
                 GameArea.Shoot_icon = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
             }
