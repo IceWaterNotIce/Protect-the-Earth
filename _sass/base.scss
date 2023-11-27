@@ -7,6 +7,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+
 }
 
 body {
@@ -27,7 +28,7 @@ div.coverpage {
     align-items: center;
 }
 
-.coverpage img {
+.coverpage img.start {
     position: relative;
     top: 20%;
     width: 60%;
@@ -44,11 +45,18 @@ div.coverpage {
     text-align: center;
 }
 
-div.coverpage div {
-    position: absolute;
-    top: 30%;
+div.coverpage div div{
+    position: relative;
+    top: 60%;
+    width: 40%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+div.coverpage div img {
+
+    height: 10vh;
+    margin: 0 5%;
 }
 
 /* 手機版 */
