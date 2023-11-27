@@ -20,16 +20,16 @@ div.coverpage {
 
 div.coverpage div {
     position: relative;
-    width: 40%;
+    padding: 5%;
+    width:90%;
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
 }
 
 div.coverpage div img {
-    height: 10vh;
-    margin: 0 5%;
+    height: 9vh;
 }
 
 @media screen and (max-width: 768px) {
