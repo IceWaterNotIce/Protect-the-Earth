@@ -5,9 +5,8 @@
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-
+    width: 100vw;
+    height: 100vh;
 }
 
 body {
@@ -28,82 +27,47 @@ div.coverpage {
     align-items: center;
 }
 
-.coverpage img.start {
-    position: relative;
-    top: 20%;
-    width: 60%;
-}
 
-.coverpage h1 {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    top: 10%;
-    font-size: 50px;
-    color: white;
-    font-family: '微軟正黑體';
-    text-align: center;
-}
-
-div.coverpage div div{
-    position: relative;
-    top: 60%;
-    width: 40%;
-    display: flex;
-    flex-direction: row;
-}
-
-div.coverpage div img {
-
-    height: 10vh;
-    margin: 0 5%;
-}
 
 /* 手機版 */
 @media screen and (max-width: 768px) {
-    div.coverpage {
-        width: 100%;
-    }
 
-    .coverpage img {
+
+    .plot {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 80%;
+        height: 55%;
+        background-color: rgba(168, 109, 109, 0.55);
+        border-radius: 50px;
+        padding: 8% 5% 5% 5%;
     }
-}
 
-.plot {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 55%;
-    background-color: rgba(168, 109, 109, 0.55);
-    border-radius: 50px;
-    padding: 8% 5% 5% 5%;
-}
+    .plot p {
+        font-size: 3.3vw;
+        font-family: "Zen Kurenaido";
+        text-shadow: 0 0 10px #000000;
+    }
 
-.plot p {
-    font-size: 3.3vw;
-    font-family: "Zen Kurenaido";
-    text-shadow: 0 0 10px #000000;
-}
+    #plotSkipBtn {
+        position: absolute;
+        top: 20%;
+        right: 2%;
+        width: 10%;
+        height: 5%;
+        background-color: rgba(168, 109, 109, 0.55);
+        border-radius: 25px;
+        z-index: 15;
+    }
 
-#plotSkipBtn {
-    position: absolute;
-    top: 20%;
-    right: 2%;
-    width: 10%;
-    height: 5%;
-    background-color: rgba(168, 109, 109, 0.55);
-    border-radius: 25px;
-    z-index: 15;
-}
-
-#plotvid{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
+    #plotvid {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+    }
 }
