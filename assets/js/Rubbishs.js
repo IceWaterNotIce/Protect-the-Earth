@@ -8,7 +8,7 @@ class Rubbish extends ImgComponent {
     }
     update() {
         super.update();
-        let ctx = window.GameArea.context;
+        let ctx = GameArea.context;
         if (this.life > 0) {
             ctx.fillStyle = "#FF0000";
             ctx.fillRect(this.x, this.y - 5, this.width * this.life / this.Maxlife, 2);

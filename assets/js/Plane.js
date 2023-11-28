@@ -20,8 +20,8 @@ class Plane extends ImgComponent {
         else if (this.MoveLeft == true) {
             this.x += 10;
             //console.log(this.x);
-            if (this.x > window.GameArea.canvas.width - this.width) {
-                this.x = window.GameArea.canvas.width - this.width;
+            if (this.x > GameArea.canvas.width - this.width) {
+                this.x = GameArea.canvas.width - this.width;
             }
         }
     }
@@ -31,7 +31,7 @@ class Plane extends ImgComponent {
         if (this.CanShoot == true) {
             var BulletImg = new Image();
             BulletImg.src = BulletImgUrls[gamelevel - 1];
-            window.GameArea.Bullets.push(new Bullet(
+            GameArea.Bullets.push(new Bullet(
                 BulletImg.width,
                 BulletImg.height,
                 this.x + (this.width - BulletImg.width) / 2,
