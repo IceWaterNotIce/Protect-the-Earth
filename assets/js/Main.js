@@ -83,13 +83,13 @@ window.GameArea = {
         var PlaneImg = new Image();
         PlaneImg.src = UrlsLib.PlaneImgUrls[gamelevel - 1];
         PlaneImg.onload = () => {
-            GameArea.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
+            this.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
         }
-        GameArea.Bullets = [];
+        this.Bullets = [];
         
         // insert canvas to main
 
-        GameArea.Rubbishs = [];
+        this.Rubbishs = [];
         document.body.appendChild(this.canvas);
         document.body.style.textAlign = 'center';
         this.context = this.canvas.getContext("2d");
