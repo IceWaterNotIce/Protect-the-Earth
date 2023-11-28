@@ -3,7 +3,7 @@ function mobileInput() {
     //
     console.log("mobileInput");
     GameArea.canvas.addEventListener("touchstart", process, false);
-    console.log(GameArea.canvas.eventListeners);
+    console.log(GameArea.canvas);
     GameArea.canvas.addEventListener("touchcancel", process, false);
     GameArea.canvas.addEventListener("touchend", process, false);
     
