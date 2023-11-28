@@ -11,7 +11,7 @@ function navigateToStoryLine() {
     switch (storyLine) {
     {% for story in site.storyline %}
         case "{{ forloop.index }}":
-            window.location.href = "{{ site.url }}{{ site.baseurl }}{{ story.url }}";
+            location.href = "{{ site.url }}{{ site.baseurl }}{{ story.url }}";
             console.log("{{ site.url }}{{ site.baseurl }}{{ story.url }}");
             break;
     {% endfor %}

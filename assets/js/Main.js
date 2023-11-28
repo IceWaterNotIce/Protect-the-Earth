@@ -1,58 +1,58 @@
 ---
-    ---
+---
 
-    window.deviceType = findDeviceType();
-console.log(window.deviceType);
+    deviceType = findDeviceType();
+console.log(deviceType);
 
 
-window.gamelevel;
+gamelevel;
 var storyLine = localStorage.getItem("storyLine");
 if (storyLine == null || storyLine == NaN) {
-    window.gamelevel = '1';
+    gamelevel = '1';
 }
 
 switch (storyLine) {
     case "3":
-        window.gamelevel = 1;
+        gamelevel = 1;
         break;
     case "5":
-        window.gamelevel = 2;
+        gamelevel = 2;
         break;
     case "7":
-        window.gamelevel = 3;
+        gamelevel = 3;
         break;
     default:
-        window.gamelevel = 1;
+        gamelevel = 1;
         break;
 }
 
 
 
 
-window.HeartImg = new Image();
+HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
-window.GameArea = {
+GameArea = {
     canvas: document.createElement("canvas"),
     start: function (gamelevel) {
 
         //console.log("HelloWorld");
-        if (window.deviceType === "Mobile") {
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight;
+        if (deviceType === "Mobile") {
+            this.canvas.width = innerWidth;
+            this.canvas.height = innerHeight;
 
         }
-        if (window.deviceType === "Tablet") {
-            if (window.innerWidth > window.innerHeight) {
+        if (deviceType === "Tablet") {
+            if (innerWidth > innerHeight) {
                 this.canvas.width = 500;
-                this.canvas.height = window.innerHeight;
+                this.canvas.height = innerHeight;
             } else {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
+                this.canvas.width = innerWidth;
+                this.canvas.height = innerHeight;
             }
         }
-        if (window.deviceType == "Desktop") {
+        if (deviceType == "Desktop") {
             this.canvas.width = 500;
-            this.canvas.height = window.innerHeight;
+            this.canvas.height = innerHeight;
             desktopInput();
         }
         if (deviceType == "Mobile") {
@@ -94,7 +94,7 @@ window.GameArea = {
     }
 };
 
-startgame(window.gamelevel);
+startgame(gamelevel);
 
 
 

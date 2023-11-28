@@ -19,7 +19,7 @@ function mobileTips(ctx, canvas) {
     ctx.fillText("觸碰任意位置開始", canvas.width / 2, canvas.height / 2 + 150);
     // let user continue game by touching anywhere on screen
     canvas.addEventListener("touchstart", () => {
-        window.gameStart = true;
+        gameStart = true;
     });
 }
 

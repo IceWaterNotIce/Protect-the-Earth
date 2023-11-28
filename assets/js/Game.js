@@ -1,9 +1,9 @@
 function startgame(gamelevel) {
     console.log(gamelevel);
-    window.bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
-    window.bgAudio.loop = true;
-    window.bgAudio.volume = 0.06;
-    window.bgAudio.play();
+    bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
+    bgAudio.loop = true;
+    bgAudio.volume = 0.06;
+    bgAudio.play();
 
     GameArea.start(gamelevel);
     GameArea.GameScore = new TextComponent(0, 0, 2 * GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "30px Arial");
@@ -126,8 +126,8 @@ function loop() {
 function endgame(winbool) {
     clearInterval(GameArea.interval);
     setTimeout(() => {
-        window.bgAudio.pause();
-        window.bgAudio = null;
+        bgAudio.pause();
+        bgAudio = null;
         // //delete GameArea.canvas
         if (winbool == false) {
             //add new text component to show game over
@@ -140,7 +140,7 @@ function endgame(winbool) {
             var btn = document.createElement("button");
             btn.innerHTML = "Restart";
             btn.style.position = "fixed";
-            btn.style.left = window.innerWidth / 2 - 50 + "px";
+            btn.style.left = innerWidth / 2 - 50 + "px";
             btn.style.top = GameArea.canvas.height / 2 + 50 + "px";
             btn.style.width = "100px";
             btn.style.height = "50px";
@@ -157,7 +157,7 @@ function endgame(winbool) {
                 GameArea.Bullets = [];
                 GameArea.Rubbishs = [];
                 document.body.removeChild(GameArea.canvas);
-                startgame(window.gamelevel);
+                startgame(gamelevel);
             };
         }
         else if (winbool == true) {
@@ -166,7 +166,7 @@ function endgame(winbool) {
             GameArea.Rubbishs = [];
             GameArea.plane = null;
             document.body.removeChild(GameArea.canvas);
-            window.gamelevel++;
+            gamelevel++;
             var storyLine = localStorage.getItem("storyLine");
             if (storyLine == null) {
                 storyLine = 0;
