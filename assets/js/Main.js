@@ -8,26 +8,8 @@ console.log(deviceType);
 var gamelevel;
 var storyLine = localStorage.getItem("storyLine");
 if (storyLine == null || storyLine == NaN) {
-    gamelevel = '1';
+    gamelevel = '2';
 }
-
-switch (storyLine) {
-    case "3":
-        gamelevel = 1;
-        break;
-    case "5":
-        gamelevel = 2;
-        break;
-    case "7":
-        gamelevel = 3;
-        break;
-    default:
-        gamelevel = 1;
-        break;
-}
-
-
-
 
 HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
