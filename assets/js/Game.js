@@ -163,6 +163,7 @@ function endgame(winbool) {
             GameArea.clear();
             GameArea.Bullets = [];
             GameArea.Rubbishs = [];
+            GameArea.plane = null;
             document.body.removeChild(GameArea.canvas);
             window.gamelevel++;
             var storyLine = localStorage.getItem("storyLine");
