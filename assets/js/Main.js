@@ -1,7 +1,7 @@
 ---
----
+    ---
 
-window.deviceType = findDeviceType();
+    window.deviceType = findDeviceType();
 console.log(window.deviceType);
 
 
@@ -39,7 +39,7 @@ window.GameArea = {
         if (window.deviceType === "Mobile") {
             this.canvas.width = window.innerWidth;
             this.canvas.height = window.innerHeight;
-            
+
         }
         if (window.deviceType === "Tablet") {
             if (window.innerWidth > window.innerHeight) {
@@ -70,24 +70,24 @@ window.GameArea = {
             }
             mobileInput();
         }
-        
+
         var PlaneImg = new Image();
         PlaneImg.src = PlaneImgUrls[gamelevel - 1];
         console.log(PlaneImgUrls[gamelevel - 1]);
         PlaneImg.onload = () => {
-            GameArea.plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
-        }
-        this.Bullets = [];
-        
-        // insert canvas to main
+            this.plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
+            GameArea.Bullets = [];
 
-        this.Rubbishs = [];
-        document.body.appendChild(this.canvas);
-        document.body.style.textAlign = 'center';
-        this.context = this.canvas.getContext("2d");
-        // 
-        this.canvas.style.border = "1px solid";
-        this.interval = setInterval(loop, 20);
+            // insert canvas to main
+
+            this.Rubbishs = [];
+            document.body.appendChild(this.canvas);
+            document.body.style.textAlign = 'center';
+            this.context = this.canvas.getContext("2d");
+            // 
+            this.canvas.style.border = "1px solid";
+            this.interval = setInterval(loop, 20);
+        }
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
