@@ -27,8 +27,8 @@ export class Plane extends SpiritsLib.ImgComponent {
         else if (this.MoveLeft == true) {
             this.x += 10;
             //console.log(this.x);
-            if (this.x > GameArea.canvas.width - this.width) {
-                this.x = GameArea.canvas.width - this.width;
+            if (this.x > window.GameArea.canvas.width - this.width) {
+                this.x = window.GameArea.canvas.width - this.width;
             }
         }
     }
@@ -38,7 +38,7 @@ export class Plane extends SpiritsLib.ImgComponent {
         if (this.CanShoot == true) {
             var BulletImg = new Image();
             BulletImg.src = UrlsLib.BulletImgUrls[gamelevel - 1];
-            GameArea.Bullets.push(new BulletsLib.Bullet(
+            window.GameArea.Bullets.push(new BulletsLib.Bullet(
                 BulletImg.width,
                 BulletImg.height,
                 this.x + (this.width - BulletImg.width) / 2,

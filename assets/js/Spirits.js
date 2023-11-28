@@ -15,7 +15,7 @@ export class Component{
         this.y += this.speedY + this.gravitySpeed;
     }
     overBottom() {
-        var rockbottom = GameArea.canvas.height;
+        var rockbottom = window.GameArea.canvas.height;
         if (this.y > rockbottom) {
             return true;
         }
@@ -50,7 +50,7 @@ export class ImgComponent extends Component{
         this.globalAlpha = globalAlpha;
     }
     update() {
-        let ctx = GameArea.context;
+        let ctx = window.GameArea.context;
         ctx.globalAlpha = this.globalAlpha;
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
@@ -64,7 +64,7 @@ export class TextComponent extends Component{
         this.textFont = textFont;
     }
     update() {
-        let ctx = GameArea.context;
+        let ctx = window.GameArea.context;
         ctx.fillStyle = this.textRGBColor;
         ctx.font = this.textFont;
         ctx.fillText(this.text, this.x, this.y);
@@ -78,7 +78,7 @@ export class RectComponent extends Component{
         this.rectAlpha = rectAlpha;
     }
     update = function() {
-        let ctx = GameArea.context;
+        let ctx = window.GameArea.context;
         ctx.fillStyle = this.rectRGBColor;
         ctx.globalAlpha = this.rectAlpha;
         ctx.fillRect(this.x, this.y, this.width, this.height);

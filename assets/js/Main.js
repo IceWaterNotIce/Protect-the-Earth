@@ -40,7 +40,7 @@ switch (storyLine) {
 
 window.HeartImg = new Image();
 HeartImg.src = UrlsLib.HeartImgUrl;
-window.GameArea = {
+window.window.GameArea = {
     canvas: document.createElement("canvas"),
     start: function (gamelevel) {
 
@@ -65,17 +65,17 @@ window.GameArea = {
             PlayerInputLib.desktopInput();
         }
         if (deviceType == "Mobile") {
-            GameArea.Control_rod;
+            window.GameArea.Control_rod;
             var Control_rod_img = new Image();
             Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
             Control_rod_img.onload = () => {
-                GameArea.Control_rod = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
+                window.GameArea.Control_rod = new SpiritsLib.ImgComponent(window.GameArea.canvas.width / 2, window.GameArea.canvas.width / 2, 0, window.GameArea.canvas.height - window.GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
             }
-            GameArea.Shoot_icon;
+            window.GameArea.Shoot_icon;
             var Shoot_icon_img = new Image();
             Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.png";
             Shoot_icon_img.onload = () => {
-                GameArea.Shoot_icon = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
+                window.GameArea.Shoot_icon = new SpiritsLib.ImgComponent(window.GameArea.canvas.width / 2, window.GameArea.canvas.width / 2, window.GameArea.canvas.width - Shoot_icon_img.width, window.GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
             }
             PlayerInputLib.mobileInput();
         }
@@ -83,7 +83,7 @@ window.GameArea = {
         var PlaneImg = new Image();
         PlaneImg.src = UrlsLib.PlaneImgUrls[gamelevel - 1];
         PlaneImg.onload = () => {
-            this.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
+            this.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, window.GameArea.canvas.width / 2, 2 * window.GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
         }
         this.Bullets = [];
         

@@ -11,7 +11,7 @@ export class Rubbish extends SpiritsLib.ImgComponent {
     }
     update() {
         super.update();
-        let ctx = GameArea.context;
+        let ctx = window.GameArea.context;
         if (this.life > 0) {
             ctx.fillStyle = "#FF0000";
             ctx.fillRect(this.x, this.y - 5, this.width * this.life / this.Maxlife, 2);
