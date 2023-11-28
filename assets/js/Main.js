@@ -1,11 +1,11 @@
 ---
 ---
 
-    deviceType = findDeviceType();
+deviceType = findDeviceType();
 console.log(deviceType);
 
 
-gamelevel;
+var gamelevel;
 var storyLine = localStorage.getItem("storyLine");
 if (storyLine == null || storyLine == NaN) {
     gamelevel = '1';
