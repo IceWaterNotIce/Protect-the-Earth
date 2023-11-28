@@ -12,7 +12,7 @@ gamelevel = '2';
 
 HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
-GameArea = {
+var GameArea = {
     canvas: document.createElement("canvas"),
     start: function (gamelevel) {
 
