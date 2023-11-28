@@ -87,7 +87,9 @@ GameArea = {
             this.canvas.style.border = "1px solid";
             this.interval = setInterval(loop, 20);
 
-            if (deviceType === "Mobile") {
+            console.log(deviceType);
+            console.log(deviceType == "Mobile");
+            if (deviceType == "Mobile") {
                 mobileInput();
             }
         }

@@ -1,4 +1,7 @@
 function mobileInput() {
+
+    //
+    console.log("mobileInput");
     GameArea.canvas.addEventListener("touchstart", process, false);
     GameArea.canvas.addEventListener("touchcancel", process, false);
     GameArea.canvas.addEventListener("touchend", process, false);
