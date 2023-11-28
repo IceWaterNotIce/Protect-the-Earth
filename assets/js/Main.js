@@ -73,6 +73,7 @@ window.GameArea = {
         
         var PlaneImg = new Image();
         PlaneImg.src = PlaneImgUrls[gamelevel - 1];
+        console.log(PlaneImgUrls[gamelevel - 1]);
         PlaneImg.onload = () => {
             GameArea.plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
         }
