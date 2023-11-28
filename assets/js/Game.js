@@ -87,6 +87,7 @@ function loop() {
     //#endregion
 
     //#region Update
+    console.log(GameArea.plane);
     GameArea.plane.newPos();
     GameArea.plane.update();
     for (let i = 0; i < GameArea.Rubbishs.length; i += 1) {
