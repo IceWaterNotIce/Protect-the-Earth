@@ -68,7 +68,6 @@ GameArea = {
             Shoot_icon_img.onload = () => {
                 GameArea.Shoot_icon = new ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
             }
-            mobileInput();
         }
 
         var PlaneImg = new Image();
@@ -87,6 +86,10 @@ GameArea = {
             // 
             this.canvas.style.border = "1px solid";
             this.interval = setInterval(loop, 20);
+
+            if (deviceType === "Mobile") {
+                mobileInput();
+            }
         }
     },
     clear: function () {
