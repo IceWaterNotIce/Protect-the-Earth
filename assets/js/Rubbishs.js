@@ -1,7 +1,7 @@
 ---
 ---
 
-import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
+import * as SpiritsLib from "./Spirits.js";
 
 export class Rubbish extends SpiritsLib.ImgComponent {
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha, Maxlife) {

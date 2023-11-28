@@ -1,14 +1,14 @@
 ---
 ---
 
-import * as UrlsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Urls.js";
-import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
-import * as RubbishsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Rubbishs.js";
-import * as PageUrlLib from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+import * as UrlsLib from "./Urls.js";
+import * as SpiritsLib from "./Spirits.js";
+import * as RubbishsLib from "./Rubbishs.js";
+import * as PageUrlLib from "./PageUrl.js";
 
 export function startgame(gamelevel) {
     console.log(gamelevel);
-    window.bgAudio = new Audio("{{ site.url }}{{ site.baseurl }}/assets/audio/BGM_Lv" + gamelevel + ".mp3");
+    window.bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
     window.bgAudio.loop = true;
     window.bgAudio.volume = 0.06;
     window.bgAudio.play();

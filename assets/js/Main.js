@@ -1,14 +1,14 @@
 ---
 ---
 
-import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
-import * as PlaneLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Plane.js";
-import * as BulletsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Bullets.js";
-import * as RubbishsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Rubbishs.js";
-import * as GameLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Game.js";
-import * as UrlsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Urls.js";
-import * as deviceTypeLib from "{{ site.url }}{{ site.baseurl }}/assets/js/deviceType.js";
-import * as PlayerInputLib from "{{ site.url }}{{ site.baseurl }}/assets/js/PlayerInput.js";
+import * as SpiritsLib from "./Spirits.js";
+import * as PlaneLib from "./Plane.js";
+import * as BulletsLib from "./Bullets.js";
+import * as RubbishsLib from "./Rubbishs.js";
+import * as GameLib from "./Game.js";
+import * as UrlsLib from "./Urls.js";
+import * as deviceTypeLib from "./deviceType.js";
+import * as PlayerInputLib from "./PlayerInput.js";
 
 window.deviceType = deviceTypeLib.findDeviceType();
 console.log(window.deviceType);
@@ -67,13 +67,13 @@ window.GameArea = {
         if (deviceType == "Mobile") {
             GameArea.Control_rod;
             var Control_rod_img = new Image();
-            Control_rod_img.src = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Control_rod_1.png";
+            Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
             Control_rod_img.onload = () => {
                 GameArea.Control_rod = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
             }
             GameArea.Shoot_icon;
             var Shoot_icon_img = new Image();
-            Shoot_icon_img.src = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Shoot_icon_1.png";
+            Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.png";
             Shoot_icon_img.onload = () => {
                 GameArea.Shoot_icon = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
             }
@@ -112,7 +112,7 @@ GameLib.startgame(window.gamelevel);
 // function endplot() {
 //     if (index == 4) {
 //         var xhr = new XMLHttpRequest();
-//         xhr.open('get', "{{ site.url }}{{ site.baseurl }}/gameend.html");
+//         xhr.open('get', "./gameend.html");
 //         xhr.send();
 //         xhr.onreadystatechange = function () {
 //             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -129,19 +129,19 @@ GameLib.startgame(window.gamelevel);
 
 // function startplot() {
 //     var xhr = new XMLHttpRequest();
-//     xhr.open('get', "{{ site.url }}{{ site.baseurl }}/storyline/plot_" + index + ".html");
+//     xhr.open('get', "./storyline/plot_" + index + ".html");
 
 //     xhr.send();
 //     xhr.onreadystatechange = function () {
 //         if (xhr.readyState == 4 && xhr.status == 200) {
-//             document.body.style.backgroundImage = "url({{ site.url }}{{ site.baseurl }}/assets/img/background/plot" + index + ".jpg)";
+//             document.body.style.backgroundImage = "url(./assets/img/background/plot" + index + ".jpg)";
 //             document.querySelector('main').innerHTML = xhr.responseText;
 //             var textindex = 0;
 //             var text = document.getElementsByTagName("p")[0].innerText;
 //             var chars = Array.from(text);
 
 //             document.getElementsByTagName("p")[0].innerText = '';
-//             keyboardaudio = new Audio("{{ site.url }}{{ site.baseurl }}/assets/audio/Keyboard_Typing_Fast.mp3");
+//             keyboardaudio = new Audio("./assets/audio/Keyboard_Typing_Fast.mp3");
 //             keyboardaudio.volume = 1;
 //             keyboardaudio.play();
 

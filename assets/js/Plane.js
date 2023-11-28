@@ -1,9 +1,9 @@
 ---
 ---
 
-import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
-import * as BulletsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Bullets.js";
-import * as UrlsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Urls.js";
+import * as SpiritsLib from "./Spirits.js";
+import * as BulletsLib from "./Bullets.js";
+import * as UrlsLib from "./Urls.js";
 
 export class Plane extends SpiritsLib.ImgComponent {
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha, life, attack) {
