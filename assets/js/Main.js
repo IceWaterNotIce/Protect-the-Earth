@@ -7,9 +7,8 @@ console.log(deviceType);
 
 var gamelevel;
 var storyLine = localStorage.getItem("storyLine");
-if (storyLine == null || storyLine == NaN) {
-    gamelevel = '2';
-}
+gamelevel = '2';
+
 
 HeartImg = new Image();
 HeartImg.src = HeartImgUrl;
