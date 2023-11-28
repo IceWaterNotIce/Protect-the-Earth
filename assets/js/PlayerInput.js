@@ -2,10 +2,10 @@ function mobileInput() {
 
     //
     console.log("mobileInput");
-    GameArea.canvas.addEventListener("touchstart", process, false);
-    console.log(GameArea.canvas);
-    GameArea.canvas.addEventListener("touchcancel", process, false);
-    GameArea.canvas.addEventListener("touchend", process, false);
+    document.getElementsByTagName("canvas")[0].addEventListener("touchstart", process, false);
+    console.log(document.getElementsByTagName("canvas")[0]);
+    document.getElementsByTagName("canvas")[0].addEventListener("touchcancel", process, false);
+    document.getElementsByTagName("canvas")[0].addEventListener("touchend", process, false);
     
     function process(ev) {
         console.log(ev.touches);
