@@ -1,12 +1,4 @@
----
----
-
-import * as UrlsLib from "./Urls.js";
-import * as SpiritsLib from "./Spirits.js";
-import * as RubbishsLib from "./Rubbishs.js";
-import * as PageUrlLib from "./PageUrl.js";
-
-export function startgame(gamelevel) {
+function startgame(gamelevel) {
     console.log(gamelevel);
     window.bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
     window.bgAudio.loop = true;
@@ -14,15 +6,15 @@ export function startgame(gamelevel) {
     window.bgAudio.play();
 
     window.GameArea.start(gamelevel);
-    window.GameArea.GameScore = new SpiritsLib.TextComponent(0, 0, 2 * window.GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "30px Arial");
+    window.GameArea.GameScore = new TextComponent(0, 0, 2 * window.GameArea.canvas.width / 4, 50, 0, 0, "text", "#000000", "30px Arial");
     window.GameArea.GameScore.score = 0;
     // 進度條
-    window.GameArea.Progress_bar_background = new SpiritsLib.RectComponent(window.GameArea.canvas.width - 50, 20, 25, 60, 0, 0, "#FFFFFF", 0.5);
-    window.GameArea.Progress_bar = new SpiritsLib.RectComponent(0, 16, 30, 62, 0, 0, "#000000", 1);
+    window.GameArea.Progress_bar_background = new RectComponent(window.GameArea.canvas.width - 50, 20, 25, 60, 0, 0, "#FFFFFF", 0.5);
+    window.GameArea.Progress_bar = new RectComponent(0, 16, 30, 62, 0, 0, "#000000", 1);
 
 }
 
-export function loop() {
+function loop() {
     //#region Clear
     window.GameArea.clear();
     // delete bullet if it collide with Rubbish
@@ -76,10 +68,10 @@ export function loop() {
     //#region Create
     if (window.GameArea.Rubbishs.length < 2 || Math.floor(Math.random() * 60) == 2) {
         let RubbishImg = new Image();
-        RubbishImg.src = UrlsLib.RubbishMetalImgUrls[Math.floor(Math.random() * UrlsLib.RubbishMetalImgUrls.length)];
+        RubbishImg.src = RubbishMetalImgUrls[Math.floor(Math.random() * RubbishMetalImgUrls.length)];
         RubbishImg.onload = () => {
             let x = Math.floor(Math.random() * (window.GameArea.canvas.width - window.GameArea.plane.width + 1) + window.GameArea.plane.width / 2);
-            window.GameArea.Rubbishs.push(new RubbishsLib.Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 1, 15));
+            window.GameArea.Rubbishs.push(new Rubbish(RubbishImg.width, RubbishImg.height, x, -RubbishImg.height, 0, 3, RubbishImg, 1, 15));
             //console.log("Created Rubbish");
             // delete rubbish if it collide with other rubbish
             for (let j = 0; j < window.GameArea.Rubbishs.length - 1; j += 1) {
@@ -130,7 +122,7 @@ export function loop() {
     //#endregion
 }
 
-export function endgame(winbool) {
+function endgame(winbool) {
     clearInterval(window.GameArea.interval);
     setTimeout(() => {
         window.bgAudio.pause();
@@ -138,9 +130,9 @@ export function endgame(winbool) {
         // //delete window.GameArea.canvas
         if (winbool == false) {
             //add new text component to show game over
-            window.GameArea.GameEndRect = new SpiritsLib.RectComponent(window.GameArea.canvas.width, window.GameArea.canvas.height, 0, 0, 0, 0, "#FFFFFF", 0.5);
+            window.GameArea.GameEndRect = new RectComponent(window.GameArea.canvas.width, window.GameArea.canvas.height, 0, 0, 0, 0, "#FFFFFF", 0.5);
             window.GameArea.GameEndRect.update();
-            window.GameArea.GameEnd = new SpiritsLib.TextComponent(0, 0, window.GameArea.canvas.width / 2 - 100, window.GameArea.canvas.height / 2, 0, 0, "text", "#000000", "40px Arial");
+            window.GameArea.GameEnd = new TextComponent(0, 0, window.GameArea.canvas.width / 2 - 100, window.GameArea.canvas.height / 2, 0, 0, "text", "#000000", "40px Arial");
             window.GameArea.GameEnd.text = "Game Over";
             window.GameArea.GameEnd.update();
             //add new button to restart game
@@ -179,7 +171,7 @@ export function endgame(winbool) {
             }
             storyLine = parseInt(storyLine) + 1;
             localStorage.setItem("storyLine", storyLine);
-            PageUrlLib.navigateToStoryLine();
+            navigateToStoryLine();
         }
     }, 100);
 

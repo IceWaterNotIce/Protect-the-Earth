@@ -1,4 +1,4 @@
-export function mobileInput() {
+function mobileInput() {
     window.GameArea.canvas.addEventListener("touchstart", process, false);
     window.GameArea.canvas.addEventListener("touchcancel", process, false);
     window.GameArea.canvas.addEventListener("touchend", process, false);
@@ -46,7 +46,7 @@ export function mobileInput() {
     }
 }
 
-export function desktopInput(){
+function desktopInput(){
     document.addEventListener("keydown", function (e) {
         //console.log(e.key);
         if (e.key == "A" || e.key == "a") {

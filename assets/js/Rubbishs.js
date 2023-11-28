@@ -1,9 +1,6 @@
----
----
 
-import * as SpiritsLib from "./Spirits.js";
 
-export class Rubbish extends SpiritsLib.ImgComponent {
+class Rubbish extends ImgComponent {
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha, Maxlife) {
         super(width, height, x, y, speedX, speedY, img, globalAlpha);
         this.life = Maxlife;

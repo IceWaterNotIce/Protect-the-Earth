@@ -23,7 +23,7 @@ function mobileTips(ctx, canvas) {
     });
 }
 
-export default function gameTips(ctx, canvas) {
+function gameTips(ctx, canvas) {
     //according device type to create different tips content
     if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         mobileTips(ctx, canvas);

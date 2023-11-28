@@ -3,8 +3,9 @@
     <button id="continue">繼續遊戲</button>
     <button id="new">開始新的遊戲</button>
 </div>
-<script type="module">
-    import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js"></script>
+<script>
+    
     //get stoyline from local storage
     var StoryLine = localStorage.getItem("storyLine");
     //set stoyline to local storage

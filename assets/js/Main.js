@@ -1,16 +1,7 @@
 ---
 ---
 
-import * as SpiritsLib from "./Spirits.js";
-import * as PlaneLib from "./Plane.js";
-import * as BulletsLib from "./Bullets.js";
-import * as RubbishsLib from "./Rubbishs.js";
-import * as GameLib from "./Game.js";
-import * as UrlsLib from "./Urls.js";
-import * as deviceTypeLib from "./deviceType.js";
-import * as PlayerInputLib from "./PlayerInput.js";
-
-window.deviceType = deviceTypeLib.findDeviceType();
+window.deviceType = findDeviceType();
 console.log(window.deviceType);
 
 
@@ -39,7 +30,7 @@ switch (storyLine) {
 
 
 window.HeartImg = new Image();
-HeartImg.src = UrlsLib.HeartImgUrl;
+HeartImg.src = HeartImgUrl;
 window.window.GameArea = {
     canvas: document.createElement("canvas"),
     start: function (gamelevel) {
@@ -62,28 +53,28 @@ window.window.GameArea = {
         if (window.deviceType == "Desktop") {
             this.canvas.width = 500;
             this.canvas.height = window.innerHeight;
-            PlayerInputLib.desktopInput();
+            desktopInput();
         }
         if (deviceType == "Mobile") {
             window.GameArea.Control_rod;
             var Control_rod_img = new Image();
             Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
             Control_rod_img.onload = () => {
-                window.GameArea.Control_rod = new SpiritsLib.ImgComponent(window.GameArea.canvas.width / 2, window.GameArea.canvas.width / 2, 0, window.GameArea.canvas.height - window.GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
+                window.GameArea.Control_rod = new ImgComponent(window.GameArea.canvas.width / 2, window.GameArea.canvas.width / 2, 0, window.GameArea.canvas.height - window.GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
             }
             window.GameArea.Shoot_icon;
             var Shoot_icon_img = new Image();
             Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.png";
             Shoot_icon_img.onload = () => {
-                window.GameArea.Shoot_icon = new SpiritsLib.ImgComponent(window.GameArea.canvas.width / 2, window.GameArea.canvas.width / 2, window.GameArea.canvas.width - Shoot_icon_img.width, window.GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
+                window.GameArea.Shoot_icon = new ImgComponent(window.GameArea.canvas.width / 2, window.GameArea.canvas.width / 2, window.GameArea.canvas.width - Shoot_icon_img.width, window.GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
             }
-            PlayerInputLib.mobileInput();
+            mobileInput();
         }
         
         var PlaneImg = new Image();
-        PlaneImg.src = UrlsLib.PlaneImgUrls[gamelevel - 1];
+        PlaneImg.src = PlaneImgUrls[gamelevel - 1];
         PlaneImg.onload = () => {
-            this.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, window.GameArea.canvas.width / 2, 2 * window.GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
+            this.plane = new Plane(PlaneImg.width - 50, PlaneImg.height - 50, window.GameArea.canvas.width / 2, 2 * window.GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
         }
         this.Bullets = [];
         
@@ -95,14 +86,14 @@ window.window.GameArea = {
         this.context = this.canvas.getContext("2d");
         // 
         this.canvas.style.border = "1px solid";
-        this.interval = setInterval(GameLib.loop, 20);
+        this.interval = setInterval(loop, 20);
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 };
 
-GameLib.startgame(window.gamelevel);
+startgame(window.gamelevel);
 
 
 

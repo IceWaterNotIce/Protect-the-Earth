@@ -1,11 +1,4 @@
----
----
-
-import * as SpiritsLib from "./Spirits.js";
-import * as BulletsLib from "./Bullets.js";
-import * as UrlsLib from "./Urls.js";
-
-export class Plane extends SpiritsLib.ImgComponent {
+class Plane extends ImgComponent {
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha, life, attack) {
         super(width, height, x, y, speedX, speedY, img, globalAlpha);
         this.life = life;
@@ -37,8 +30,8 @@ export class Plane extends SpiritsLib.ImgComponent {
         //console.log(this.CanShoot);
         if (this.CanShoot == true) {
             var BulletImg = new Image();
-            BulletImg.src = UrlsLib.BulletImgUrls[gamelevel - 1];
-            window.GameArea.Bullets.push(new BulletsLib.Bullet(
+            BulletImg.src = BulletImgUrls[gamelevel - 1];
+            window.GameArea.Bullets.push(new Bullet(
                 BulletImg.width,
                 BulletImg.height,
                 this.x + (this.width - BulletImg.width) / 2,

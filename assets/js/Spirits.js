@@ -1,4 +1,4 @@
-export class Component{
+class Component{
     constructor(width, height, x, y, speedX, speedY) {
         this.width = width;
         this.height = height;
@@ -43,7 +43,7 @@ export class Component{
     }
 }
 
-export class ImgComponent extends Component{
+class ImgComponent extends Component{
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha) {
         super(width, height, x, y, speedX, speedY);
         this.img = img;
@@ -56,7 +56,7 @@ export class ImgComponent extends Component{
     }
 }
 
-export class TextComponent extends Component{
+class TextComponent extends Component{
     constructor(width, height, x, y, speedX, speedY, text, textRGBColor, textFont) {
         super(width, height, x, y, speedX, speedY);
         this.text = text;
@@ -71,7 +71,7 @@ export class TextComponent extends Component{
     }
 }
 
-export class RectComponent extends Component{
+class RectComponent extends Component{
     constructor(width, height, x, y, speedX, speedY, rectRGBColor, rectAlpha) {
         super(width, height, x, y, speedX, speedY);
         this.rectRGBColor = rectRGBColor;

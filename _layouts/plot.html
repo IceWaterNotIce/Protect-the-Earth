@@ -30,8 +30,8 @@
     <video id="plotvid" controls autoplay>
         <source src="..\\{{page.plvd}}" type="video/webm">
     </video>
-    <script type="module">
-        import { findDeviceType } from "{{ site.url }}{{ site.baseurl }}/assets/js/deviceType.js";
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/deviceType.js"></script>
+    <script>
         var deviceType = findDeviceType();
         var plotvid = document.getElementById("plotvid");
         if (deviceType == "Desktop") {
@@ -40,8 +40,9 @@
     </script>
     <button id="plotSkipBtn"
     onclick="var storyLine = localStorage.getItem('storyLine');window.location.href='{{ site.url }}{{ site.baseurl }}{{ story.url }}'">Skip</button>
-    <script type="module">
-        import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js"></script>
+    
+    <script>
         //select .coverpage img ele
         var plotSkipBtn = document.querySelector("#plotSkipBtn");
         //add event listener to .coverpage img ele

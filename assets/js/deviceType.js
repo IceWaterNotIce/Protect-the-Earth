@@ -1,6 +1,5 @@
 
-
-export function findDeviceType(){
+function findDeviceType(){
   let deviceType = '';
   if (/Mobi|Android/i.test(navigator.userAgent)) {
     // Mobile device
