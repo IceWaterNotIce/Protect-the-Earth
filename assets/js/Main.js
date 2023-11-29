@@ -1,5 +1,5 @@
 ---
----
+    ---
 
 import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
 import * as PlaneLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Plane.js";
@@ -48,7 +48,7 @@ window.GameArea = {
         if (window.deviceType === "Mobile") {
             this.canvas.width = window.innerWidth;
             this.canvas.height = window.innerHeight;
-            
+
         }
         if (window.deviceType === "Tablet") {
             if (window.innerWidth > window.innerHeight) {
@@ -68,25 +68,23 @@ window.GameArea = {
             GameArea.Control_rod;
             var Control_rod_img = new Image();
             Control_rod_img.src = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Control_rod_1.png";
-            Control_rod_img.onload = () => {
-                GameArea.Control_rod = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
-            }
+            GameArea.Control_rod = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, 0, GameArea.canvas.height - GameArea.canvas.width / 2, 0, 0, Control_rod_img, 0.5);
+
             GameArea.Shoot_icon;
             var Shoot_icon_img = new Image();
             Shoot_icon_img.src = "{{ site.url }}{{ site.baseurl }}/assets/img\\ui\\Shoot_icon_1.png";
-            Shoot_icon_img.onload = () => {
-                GameArea.Shoot_icon = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
-            }
+            GameArea.Shoot_icon = new SpiritsLib.ImgComponent(GameArea.canvas.width / 2, GameArea.canvas.width / 2, GameArea.canvas.width - Shoot_icon_img.width, GameArea.canvas.height - Shoot_icon_img.height, 0, 0, Shoot_icon_img, 0.5);
+
             PlayerInputLib.mobileInput();
         }
-        
+
         var PlaneImg = new Image();
         PlaneImg.src = UrlsLib.PlaneImgUrls[gamelevel - 1];
-        
-            GameArea.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
-        
+
+        GameArea.plane = new PlaneLib.Plane(PlaneImg.width - 50, PlaneImg.height - 50, GameArea.canvas.width / 2, 2 * GameArea.canvas.height / 3, 0, 0, PlaneImg, 1, 4, 5 * gamelevel);
+
         GameArea.Bullets = [];
-        
+
         // insert canvas to main
 
         GameArea.Rubbishs = [];
