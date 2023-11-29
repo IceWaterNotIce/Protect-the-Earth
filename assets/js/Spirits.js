@@ -1,9 +1,9 @@
-export class Component{
+export class Component {
     constructor(width, height, x, y, speedX, speedY) {
         this.width = width;
         this.height = height;
         this.speedX = speedX;
-        this.speedY = speedY;    
+        this.speedY = speedY;
         this.x = x;
         this.y = y;
         this.gravity = 0;
@@ -43,23 +43,25 @@ export class Component{
     }
 }
 
-export class ImgComponent extends Component{
+export class ImgComponent extends Component {
     constructor(width, height, x, y, speedX, speedY, img, globalAlpha) {
         super(width, height, x, y, speedX, speedY);
         this.img = img;
         this.globalAlpha = globalAlpha;
     }
     update() {
+        console.log(this.img);
         this.img.onload = function () {
-        let ctx = GameArea.context;
-        ctx.globalAlpha = this.globalAlpha;
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+            console.log(this.img);
+            let ctx = GameArea.context;
+            ctx.globalAlpha = this.globalAlpha;
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
         }
-        
+
     }
 }
 
-export class TextComponent extends Component{
+export class TextComponent extends Component {
     constructor(width, height, x, y, speedX, speedY, text, textRGBColor, textFont) {
         super(width, height, x, y, speedX, speedY);
         this.text = text;
@@ -74,13 +76,13 @@ export class TextComponent extends Component{
     }
 }
 
-export class RectComponent extends Component{
+export class RectComponent extends Component {
     constructor(width, height, x, y, speedX, speedY, rectRGBColor, rectAlpha) {
         super(width, height, x, y, speedX, speedY);
         this.rectRGBColor = rectRGBColor;
         this.rectAlpha = rectAlpha;
     }
-    update = function() {
+    update = function () {
         let ctx = GameArea.context;
         ctx.fillStyle = this.rectRGBColor;
         ctx.globalAlpha = this.rectAlpha;
