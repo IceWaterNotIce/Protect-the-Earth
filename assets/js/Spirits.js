@@ -50,9 +50,12 @@ export class ImgComponent extends Component{
         this.globalAlpha = globalAlpha;
     }
     update() {
+        this.img.onload = function () {
         let ctx = GameArea.context;
         ctx.globalAlpha = this.globalAlpha;
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        }
+        
     }
 }
 
