@@ -1,5 +1,5 @@
 ---
-    ---
+---
 
 import * as SpiritsLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Spirits.js";
 import * as PlaneLib from "{{ site.url }}{{ site.baseurl }}/assets/js/Plane.js";
