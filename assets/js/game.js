@@ -42,15 +42,27 @@ rubbishsPromise.then(() => {
         // 轉為 texture 並放入 array
         rubbishsTextureArray.push(PIXI.Texture.from(`rubbishs${i}.png`));
     }
-    const rubbish = PIXI.Sprite.from(rubbishsTextureArray[0]);
-    app.stage.addChild(rubbish);
 
-    // make the sprite interactive
-    rubbish.eventMode = 'dynamic';
+    var rubbishGenerateInterval = setInterval(() => {
+        const rubbish = PIXI.Sprite.from(rubbishsTextureArray[0]);
+        app.stage.addChild(rubbish);
 
-    const move = (delta) => {
-        // x座標加1 (往右移)
-        rubbish.x += 1 * delta;
-    }
-    app.ticker.add(move);
+        // 設定垃圾的起始位置
+        rubbish.eventMode = 'dynamic';
+        rubbish.x = Math.random() * app.view.width - rubbish.width;
+        rubbish.y = -rubbish.height;
+
+        // 設定垃圾的移動
+        const move = (delta) => {
+            // 垃圾超出畫面時，移除垃圾
+            if (rubbish.y > app.view.height) {
+                app.ticker.remove(move);
+                app.stage.removeChild(rubbish);
+            }
+            rubbish.y += 2 * delta;
+        }
+        app.ticker.add(move);
+    }, 1000);
+
+
 });
