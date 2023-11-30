@@ -17,7 +17,7 @@ app.stage.addChild(uiLayer);
 
 // 載入 json
 var plane;
-const planesPromise = PIXI.Assets.load('./assets/images/planes.json');
+const planesPromise = PIXI.Assets.load('./assets/images/plane/planes.json');
 planesPromise.then(() => {
     // 創建一個 array 來存放 texture
     const planesTextureArray = [];
@@ -59,7 +59,7 @@ planesPromise.then(() => {
     app.ticker.add(move);
 });
 
-const control_UI_Promise = PIXI.Assets.load('./assets/images/control_UI.json');
+const control_UI_Promise = PIXI.Assets.load('./assets/images/ui/control_UI.json');
 control_UI_Promise.then(() => {
     const Control_rod = PIXI.Sprite.from('Control_rod_1.png');
     uiLayer.addChild(Control_rod);
@@ -97,7 +97,7 @@ control_UI_Promise.then(() => {
 });
 
 // 載入 json
-const rubbishsPromise = PIXI.Assets.load('./assets/images/rubbishs.json');
+const rubbishsPromise = PIXI.Assets.load('./assets/images/rubbishs/rubbishs.json');
 rubbishsPromise.then(() => {
     // 創建一個 array 來存放 texture
     const rubbishsTextureArray = [];
@@ -108,7 +108,7 @@ rubbishsPromise.then(() => {
 
     var rubbishGenerateInterval = setInterval(() => {
         const rubbish = PIXI.Sprite.from(rubbishsTextureArray[rubbishsTextureArray.length * Math.random() | 0]);
-        app.stage.addChild(rubbish);
+        gameLayer.addChild(rubbish);
 
         // 設定垃圾的起始位置
         rubbish.eventMode = 'dynamic';
