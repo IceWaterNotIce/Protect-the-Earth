@@ -1,6 +1,6 @@
 ---
 layout: plot
-bgurl: assets\/images/\background\\plot1.jpg
+bgurl: assets/images/background\\plot1.jpg
 plvd: /assets/video/Story_01.webm
 ---
 
