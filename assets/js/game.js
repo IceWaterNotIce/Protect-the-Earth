@@ -14,11 +14,12 @@ let uiLayer = new PIXI.Container();
 app.stage.addChild(backgroundLayer);
 app.stage.addChild(gameLayer);
 app.stage.addChild(uiLayer);
+(async function () {
+    // 載入 json
+    var plane;
 
-// 載入 json
-var plane;
-const planesPromise = PIXI.Assets.load('./assets/images/plane/planes.json');
-planesPromise.then(() => {
+    const planesPromise = await PIXI.Assets.load('./assets/images/plane/planes.json');
+
     // 創建一個 array 來存放 texture
     const planesTextureArray = [];
     for (let i = 0; i < 2; i++) {
@@ -31,7 +32,7 @@ planesPromise.then(() => {
     plane.x = app.view.width / 2 - plane.width / 2;
     plane.y = app.view.height - plane.height;
     plane.eventMode = 'dynamic';
-    console.log(plane);
+
     // 綁定鍵盤事件
     window.addEventListener("keydown", (e) => {
         const { code } = e;
@@ -57,56 +58,53 @@ planesPromise.then(() => {
         plane.x += plane.vx * delta;
     }
     app.ticker.add(move);
-});
 
-const control_UI_Promise = PIXI.Assets.load('./assets/images/ui/control_UI.json');
-control_UI_Promise.then(() => {
-    const Control_rod = PIXI.Sprite.from('Control_rod_1.png');
-    uiLayer.addChild(Control_rod);
-    Control_rod.x = 0;
-    Control_rod.y = app.view.height - Control_rod.height;
 
-    // 綁定點擊事件
-    Control_rod.interactive = true;
-    Control_rod.buttonMode = true;
-    Control_rod.on('pointerdown', (e) => {
-        console.log(e.x, e.y);
-        if (e.x < Control_rod.width / 2) {
-            plane.vx = -5;
-        }
-        else {
-            plane.vx = 5;
-        }
+    const control_UI_Promise = PIXI.Assets.load('./assets/images/ui/control_UI.json');
+    control_UI_Promise.then(() => {
+        const Control_rod = PIXI.Sprite.from('Control_rod_1.png');
+        uiLayer.addChild(Control_rod);
+        Control_rod.x = 0;
+        Control_rod.y = app.view.height - Control_rod.height;
+
+        // 綁定點擊事件
+        Control_rod.eventMode = 'dynamic';
+        Control_rod.buttonMode = true;
+        Control_rod.on('pointerdown', (e) => {
+            if (e.x < Control_rod.width / 2) {
+                plane.vx = -5;
+            }
+            else {
+                plane.vx = 5;
+            }
+        });
+        Control_rod.on('pointerup', (e) => {
+            plane.vx = 0;
+        });
+
+        const Shoot_icon = PIXI.Sprite.from('Shoot_icon_1.png');
+        uiLayer.addChild(Shoot_icon);
+        Shoot_icon.x = app.view.width - Shoot_icon.width;
+        Shoot_icon.y = app.view.height - Shoot_icon.height;
+
+        // 綁定點擊事件
+        Shoot_icon.eventMode = 'dynamic';
+        Shoot_icon.buttonMode = true;
+
+        Shoot_icon.on('pointerdown', (e) => {
+            console.log(e.x, e.y);
+        });
     });
-    Control_rod.on('pointerup', (e) => {
-        plane.vx = 0;
-    });
 
-    const Shoot_icon = PIXI.Sprite.from('Shoot_icon_1.png');
-    uiLayer.addChild(Shoot_icon);
-    Shoot_icon.x = app.view.width - Shoot_icon.width;
-    Shoot_icon.y = app.view.height - Shoot_icon.height;
-
-    // 綁定點擊事件
-    Shoot_icon.interactive = true;
-    Shoot_icon.buttonMode = true;
-
-    Shoot_icon.on('pointerdown', (e) => {
-        console.log(e.x, e.y);
-    });
-});
-
-// 載入 json
-const rubbishsPromise = PIXI.Assets.load('./assets/images/rubbishs/rubbishs.json');
-rubbishsPromise.then(() => {
+    // 載入 json
+    const rubbishsPromise = await PIXI.Assets.load('./assets/images/rubbishs/rubbishs.json');
     // 創建一個 array 來存放 texture
     const rubbishsTextureArray = [];
     for (let i = 0; i < 2; i++) {
         // 轉為 texture 並放入 array
-        rubbishsTextureArray.push(PIXI.Texture.from(`rubbishs${i}.png`));
+        rubbishsTextureArray.push( await PIXI.Texture.from(`rubbishs${i}.png`));
     }
 
-    var rubbishGenerateInterval = setInterval(() => {
         const rubbish = PIXI.Sprite.from(rubbishsTextureArray[rubbishsTextureArray.length * Math.random() | 0]);
         gameLayer.addChild(rubbish);
 
@@ -127,7 +125,12 @@ rubbishsPromise.then(() => {
         app.ticker.add(move);
     }, 1000);
 
-});
 
-// 載入 json
-const bulletsPromise = PIXI.Assets.load('./assets/images/bullets.json');
+    // 載入 json
+    const bulletTexture = await PIXI.Texture.from('./assets/images/bullet/bullet01.png');
+    const bulletSprite = PIXI.Sprite.from(bulletTexture);
+
+    gameLayer.addChild(bulletSprite);
+    
+
+})();
