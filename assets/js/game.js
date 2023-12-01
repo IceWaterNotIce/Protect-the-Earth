@@ -23,7 +23,7 @@ app.stage.addChild(uiLayer);
     let plane;
     let planeCanShoot = false;
     let scoreValue = 0;
-    let max_score = 2;
+    let max_score = 5;
     let planeLife = 4;
     const planesPromise = await PIXI.Assets.load('../assets/images/plane/planes.json');
 
