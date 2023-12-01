@@ -2,7 +2,7 @@
 
 // 創建應用程式助手並將其渲染目標添加到頁面上
 const app = new PIXI.Application({
-    background: 'rgba(255, 255, 255, 0)',
+    backgroundAlpha: 0,
     resizeTo: window,
 });
 document.body.appendChild(app.view);
@@ -116,7 +116,7 @@ app.stage.addChild(uiLayer);
                 storyLine = parseInt(storyLine) + 1;
                 localStorage.setItem("storyLine", storyLine);
                 navigateToStoryLine();
-            }, 3000);
+            }, 2000);
         }
     }
     app.ticker.add(scoreUpdate);
