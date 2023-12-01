@@ -25,7 +25,7 @@ app.stage.addChild(uiLayer);
     let scoreValue = 0;
     let max_score = 2;
     let planeLife = 4;
-    const planesPromise = await PIXI.Assets.load('./assets/images/plane/planes.json');
+    const planesPromise = await PIXI.Assets.load('../assets/images/plane/planes.json');
 
     // 創建一個 array 來存放 texture
     const planesTextureArray = [];
@@ -144,7 +144,7 @@ app.stage.addChild(uiLayer);
     // plane have four heart, so create four heart images and set their position on the screen left top
     // show heart images when plane life is more than 0, plane life - 1 when hit by rubbish,
     // hide heart images when plane life is less than 0
-    const heart_texture = await PIXI.Texture.from('./assets/images/ui/heart.png');
+    const heart_texture = await PIXI.Texture.from('../assets/images/ui/heart.png');
     const heart1 = await PIXI.Sprite.from(heart_texture);
 
     plane.vx = 0;
@@ -238,7 +238,7 @@ app.stage.addChild(uiLayer);
     app.ticker.add(move);
 
 
-    const control_UI_Promise = await PIXI.Assets.load('./assets/images/ui/control_UI.json');
+    const control_UI_Promise = await PIXI.Assets.load('../assets/images/ui/control_UI.json');
 
     const Control_rod = PIXI.Sprite.from('Control_rod_1.png');
     uiLayer.addChild(Control_rod);
@@ -281,8 +281,8 @@ app.stage.addChild(uiLayer);
     //sound icon
     let sound = true;
 
-    const sound_icon_texture = await PIXI.Texture.from('./assets/images/ui/Sound_open_1.png');
-    const mute_sound_icon_texture = await PIXI.Texture.from('./assets/images/ui/Sound_close_1.png');
+    const sound_icon_texture = await PIXI.Texture.from('../assets/images/ui/Sound_open_1.png');
+    const mute_sound_icon_texture = await PIXI.Texture.from('../assets/images/ui/Sound_close_1.png');
     const sound_icon = await PIXI.Sprite.from(sound_icon_texture);
     uiLayer.addChild(sound_icon);;
     sound_icon.x = 0;
@@ -303,7 +303,7 @@ app.stage.addChild(uiLayer);
 
 
     // 載入 json
-    const rubbishsPromise = await PIXI.Assets.load('./assets/images/rubbishs/rubbishs.json');
+    const rubbishsPromise = await PIXI.Assets.load('../assets/images/rubbishs/rubbishs.json');
     // 創建一個 array 來存放 texture
     const rubbishsTextureArray = [];
     for (let i = 0; i < 12; i++) {
@@ -354,8 +354,8 @@ app.stage.addChild(uiLayer);
 
 
     // 載入 json
-    const shootaudio = new Audio('./assets/audio/Shooting_sound_effect.mp3');
-    const bulletTexture = await PIXI.Texture.from('./assets/images/bullet/bullet01.png');
+    const shootaudio = new Audio('../assets/audio/Shooting_sound_effect.mp3');
+    const bulletTexture = await PIXI.Texture.from('../assets/images/bullet/bullet01.png');
     // 創建子彈
     let bulletGenerator = setInterval(() => {
         // if shoot_icon get pressed
