@@ -1,0 +1,14 @@
+source: .
+destination: ./_site
+plugins_dir: _plugins
+layouts_dir: _layouts
+static_dir: assets
+sass:
+  sass_dir: _sass
+  style: expanded 
+includes_dir: _includes
+repository: IceWaterNotIce/Protect-the-Earth
+collections:
+  storyline:
+    output: true
+    permalink: /:collection/:title:output_ext

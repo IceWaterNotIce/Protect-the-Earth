@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX2NLVYJE8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RX2NLVYJE8');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Protect The Earth</title>
+  <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/base.css" />
+</head>
+
+<body>
+  <main>
+    {% include saveAsk.html %}
+  </main>
+  <script type="module">
+    import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+
+    //get stoyline from local storage
+    var StoryLine = localStorage.getItem("storyLine");
+    if (StoryLine == null) {
+      console.log("StoryLine is null");
+      StoryLine = "1";
+      localStorage.setItem("storyLine", StoryLine);
+      navigateToStoryLine();
+    }
+    else if (typeof StoryLine == "string") {
+      //show save-ask-container 
+      document.getElementsByClassName("save-ask-container")[0].style.display = "flex";
+    }
+    else {
+      StoryLine = 1;
+      localStorage.setItem("storyLine", StoryLine);
+      navigateToStoryLine();
+    }
+
+    
+  </script>
+</body>
+
+</html>

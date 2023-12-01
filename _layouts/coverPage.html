@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX2NLVYJE8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-RX2NLVYJE8');
+    </script>
+    <style>
+        body {
+            background-image: url("..\\{{page.bgurl}}") !important;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <title>Protect The Earth</title>
+    <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/coverpage.css" />
+</head>
+
+<body>
+    <div class="coverpage">
+        <h1>Protect The World</h1>
+        <div>
+            <img src="{{ site.url }}{{ site.baseurl }}/assets/img\ui\Shoot_icon_1.png" alt="Shoot_icon">
+            <img src="{{ site.url }}{{ site.baseurl }}/assets\img\ui\Shoot_icon_explain.png" alt="Move_icon">
+        </div>
+        <div>
+            <img src="{{ site.url }}{{ site.baseurl }}/assets/img\ui\Control_rod_1.png" alt="Shoot_icon">
+            <img src="{{ site.url }}{{ site.baseurl }}/assets\img\ui\Control_rod_explain.png" alt="Move_icon">
+        </div>
+        <img class="start" src="{{ site.url }}{{ site.baseurl }}/assets/img\ui\遊戲開始icon.gif" alt="開始遊戲">
+        <script type="module">
+            import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+            //select .coverpage img ele
+            var coverpageImg = document.querySelector(".coverpage img.start");
+            //add event listener to .coverpage img ele
+            coverpageImg.addEventListener("click", function () {
+                //set storyLine to 2
+                var storyLine = localStorage.getItem("storyLine");
+                storyLine = 2;
+                localStorage.setItem("storyLine", storyLine);
+                navigateToStoryLine();
+            });
+        </script>
+    </div>
+</body>
+
+</html>

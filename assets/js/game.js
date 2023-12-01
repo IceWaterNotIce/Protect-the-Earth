@@ -1,3 +1,5 @@
+
+
 // 創建應用程式助手並將其渲染目標添加到頁面上
 const app = new PIXI.Application({
     background: 'rgba(255, 255, 255, 0.1)',
@@ -109,6 +111,11 @@ app.stage.addChild(uiLayer);
             score.y = app.view.height / 2 - score.height / 2 + 50;
 
             //wait 3 seconds and go to 
+            setTimeout(() => {
+                storyLine = parseInt(storyLine) + 1;
+                localStorage.setItem("storyLine", storyLine);
+                navigateToStoryLine();
+            }, 3000);
         }
     }
     app.ticker.add(scoreUpdate);
