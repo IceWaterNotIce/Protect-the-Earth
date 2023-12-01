@@ -102,9 +102,11 @@ app.stage.addChild(uiLayer);
     const rubbishsTextureArray = [];
     for (let i = 0; i < 2; i++) {
         // 轉為 texture 並放入 array
-        rubbishsTextureArray.push( await PIXI.Texture.from(`rubbishs${i}.png`));
+        rubbishsTextureArray.push(await PIXI.Texture.from(`rubbishs${i}.png`));
     }
 
+    // 創建垃圾
+    let rubbishGenerator = setInterval(() => {
         const rubbish = PIXI.Sprite.from(rubbishsTextureArray[rubbishsTextureArray.length * Math.random() | 0]);
         gameLayer.addChild(rubbish);
 
@@ -122,15 +124,14 @@ app.stage.addChild(uiLayer);
             }
             rubbish.y += 2 * delta;
         }
+
         app.ticker.add(move);
     }, 1000);
+
 
 
     // 載入 json
     const bulletTexture = await PIXI.Texture.from('./assets/images/bullet/bullet01.png');
     const bulletSprite = PIXI.Sprite.from(bulletTexture);
-
-    gameLayer.addChild(bulletSprite);
-    
 
 })();
