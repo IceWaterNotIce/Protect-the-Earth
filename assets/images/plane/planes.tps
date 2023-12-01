@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/plane/Plane_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/plane/Plane_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -188,7 +188,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/plane/Plane_2.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/plane/Plane_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -203,7 +203,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/plane/Plane_3.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/plane/Plane_3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -225,9 +225,9 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/plane/Plane_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/plane/Plane_2.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/plane/Plane_3.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/plane/Plane_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/plane/Plane_2.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/plane/Plane_3.png</filename>
                 </array>
             </struct>
         </map>

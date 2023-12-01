@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Clock_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Clock_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -188,7 +188,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Coffee_machine_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Coffee_machine_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -203,7 +203,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Egg_whisk_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Egg_whisk_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -218,7 +218,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Gramophone_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Gramophone_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -233,7 +233,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Iron_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Iron_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -248,7 +248,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Landline_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Landline_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -263,7 +263,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Oven_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Oven_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -278,7 +278,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Razor_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Razor_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -293,7 +293,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Scale_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Scale_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -308,7 +308,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Speaker_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Speaker_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -323,7 +323,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Speaker_2.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Speaker_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -338,7 +338,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Television_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Television_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -353,7 +353,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Television_2.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Television_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -368,7 +368,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Toaster_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Toaster_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -383,7 +383,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Typewriter_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Typewriter_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -398,7 +398,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Walkie_talkie_1.png</key>
+            <key type="filename">D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Walkie_talkie_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -420,22 +420,22 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Clock_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Coffee_machine_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Egg_whisk_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Gramophone_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Iron_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Landline_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Oven_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Razor_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Scale_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Speaker_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Speaker_2.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Television_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Television_2.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Toaster_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Typewriter_1.png</filename>
-                    <filename>D:/Projects/Protect_The_Earth/assets/img/rubbishs/metals/Walkie_talkie_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Clock_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Coffee_machine_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Egg_whisk_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Gramophone_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Iron_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Landline_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Oven_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Razor_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Scale_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Speaker_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Speaker_2.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Television_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Television_2.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Toaster_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Typewriter_1.png</filename>
+                    <filename>D:/Projects/Protect_The_Earth/assets/images/rubbishs/metals/Walkie_talkie_1.png</filename>
                 </array>
             </struct>
         </map>

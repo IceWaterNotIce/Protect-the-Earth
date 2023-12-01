@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">assets/img/ui/Control_rod_1.png</key>
+            <key type="filename">assets/images/ui/Control_rod_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -188,7 +188,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">assets/img/ui/Shoot_icon_1.png</key>
+            <key type="filename">assets/images/ui/Shoot_icon_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -210,8 +210,8 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>assets/img/ui/Control_rod_1.png</filename>
-                    <filename>assets/img/ui/Shoot_icon_1.png</filename>
+                    <filename>assets/images/ui/Control_rod_1.png</filename>
+                    <filename>assets/images/ui/Shoot_icon_1.png</filename>
                 </array>
             </struct>
         </map>

@@ -1,5 +1,5 @@
 ---
 layout: coverPage
-bgurl: assets\\img\\background\\start.jpg
+bgurl: assets\\images\\background\\start.jpg
 
 ---
