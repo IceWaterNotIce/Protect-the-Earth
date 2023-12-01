@@ -99,13 +99,13 @@ app.stage.addChild(uiLayer);
             background.drawRect(0, 0, app.view.width, app.view.height);
             background.endFill();
             // draw game over text
-            const gameover = new PIXI.Text('You Win', { fill: 'white' });
-            uiLayer.addChild(gameover);
-            gameover.x = app.view.width / 2 - gameover.width / 2;
-            gameover.y = app.view.height / 2 - gameover.height / 2;
+            const gamewin = new PIXI.Text('You Win', { fill: 'black' });
+            uiLayer.addChild(gamewin);
+            gamewin.x = app.view.width / 2 - gamewin.width / 2;
+            gamewin.y = app.view.height / 2 - gamewin.height / 2;
 
             //show player score
-            const score = new PIXI.Text(`Your Score: ${scoreValue}`, { fill: 'white' });
+            const score = new PIXI.Text(`Your Score: ${scoreValue}`, { fill: 'black' });
             uiLayer.addChild(score);
             score.x = app.view.width / 2 - score.width / 2;
             score.y = app.view.height / 2 - score.height / 2 + 50;
