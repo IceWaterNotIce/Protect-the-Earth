@@ -1,37 +1,37 @@
 //# var declare
 let canvas = document.getElementById("gameCanvas");
-var ctx = canvas.getContext("2d");
-var gamelevel = 1;
+let ctx = canvas.getContext("2d");
+let gamelevel = 1;
 
-var Control_rod_img = new Image();
+let Control_rod_img = new Image();
 Control_rod_img.src = "../assets/img\\ui\\Control_rod_1.png";
-var Shoot_icon_img = new Image();
+let Shoot_icon_img = new Image();
 Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.png";
-var PlaneImg = new Image();
+let PlaneImg = new Image();
 PlaneImg.src = PlaneImgUrls[gamelevel - 1];
 console.log(PlaneImg);
-var RubbishMetalImg = new Image(RubbishMetalImgUrls[0]);
-var RubbishPlasticImg = new Image(RubbishPlasticImgUrls[0]);
-var HeartImg = new Image(HeartImgUrl);
+let RubbishMetalImg = new Image(RubbishMetalImgUrls[0]);
+let RubbishPlasticImg = new Image(RubbishPlasticImgUrls[0]);
+let HeartImg = new Image(HeartImgUrl);
 
 
 
-var deviceType = findDeviceType();
+let deviceType = findDeviceType();
 console.log(deviceType);
-var storyLine = localStorage.getItem("storyLine");
+let storyLine = localStorage.getItem("storyLine");
 gamelevel = '2';
-var Control_rod;
-var Shoot_icon
-var bgAudio;
-var plane;
-var Rubbishs = [];
-var Bullets = [];
-var GameScore;
-var Progress_bar_background;
-var Progress_bar;
-var interval;
-var GameEnd;
-var life;
+let Control_rod;
+let Shoot_icon
+let bgAudio;
+let plane;
+let Rubbishs = [];
+let Bullets = [];
+let GameScore;
+let Progress_bar_background;
+let Progress_bar;
+let interval;
+let GameEnd;
+let life;
 
 //#region class
 class Component {
@@ -198,10 +198,10 @@ function mobileInput() {
 
     setTimeout(() => {
         console.log("mobileInput");
-        document.getElementsByTagName("canvas")[0].addEventListener("touchstart", process, false);
+        document.addEventListener("touchstart", process, false);
         console.log(document.getElementsByTagName("canvas")[0]);
-        document.getElementsByTagName("canvas")[0].addEventListener("touchcancel", process, false);
-        document.getElementsByTagName("canvas")[0].addEventListener("touchend", process, false);
+        document.addEventListener("touchcancel", process, false);
+        document.addEventListener("touchend", process, false);
 
         function process(ev) {
             console.log(ev.touches);
