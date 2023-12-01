@@ -9,9 +9,7 @@ let Shoot_icon_img = new Image();
 Shoot_icon_img.src = "../assets/img\\ui\\Shoot_icon_1.png";
 let PlaneImg = new Image();
 PlaneImg.src = PlaneImgUrls[gamelevel - 1];
-console.log(PlaneImg);
 let RubbishMetalImg = new Image(RubbishMetalImgUrls[0]);
-let RubbishPlasticImg = new Image(RubbishPlasticImgUrls[0]);
 let HeartImg = new Image(HeartImgUrl);
 
 
