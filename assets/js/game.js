@@ -2,7 +2,7 @@
 
 // 創建應用程式助手並將其渲染目標添加到頁面上
 const app = new PIXI.Application({
-    background: 'rgba(255, 255, 255, 0.1)',
+    background: 'rgba(255, 255, 255, 0)',
     resizeTo: window,
 });
 document.body.appendChild(app.view);
