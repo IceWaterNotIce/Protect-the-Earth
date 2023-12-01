@@ -112,6 +112,7 @@ app.stage.addChild(uiLayer);
 
             //wait 3 seconds and go to 
             setTimeout(() => {
+                let storyLine = localStorage.getItem("storyLine");
                 storyLine = parseInt(storyLine) + 1;
                 localStorage.setItem("storyLine", storyLine);
                 navigateToStoryLine();
