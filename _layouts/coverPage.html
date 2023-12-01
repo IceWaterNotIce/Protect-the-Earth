@@ -36,8 +36,8 @@
             <img src="{{ site.url }}{{ site.baseurl }}/assets/images/ui\Control_rod_explain.png" alt="Move_icon">
         </div>
         <img class="start" src="{{ site.url }}{{ site.baseurl }}/assets/img\ui\遊戲開始icon.gif" alt="開始遊戲">
-        <script type="module">
-            import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+        <script src="{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js"></script>
+        <script >
             //select .coverpage img ele
             var coverpageImg = document.querySelector(".coverpage img.start");
             //add event listener to .coverpage img ele

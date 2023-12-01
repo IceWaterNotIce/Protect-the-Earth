@@ -21,8 +21,9 @@
   <main>
     {% include saveAsk.html %}
   </main>
-  <script type="module">
-    import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js"></script>
+  <script>
+  
 
     //get stoyline from local storage
     var StoryLine = localStorage.getItem("storyLine");

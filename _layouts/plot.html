@@ -40,8 +40,8 @@
     </script>
     <button id="plotSkipBtn"
     onclick="var storyLine = localStorage.getItem('storyLine');window.location.href='{{ site.url }}{{ site.baseurl }}{{ story.url }}'">Skip</button>
-    <script type="module">
-        import { navigateToStoryLine } from "{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js";
+    <script src="{{ site.url }}{{ site.baseurl }}/assets/js/PageUrl.js"></script>
+    <script>
         //select .coverpage img ele
         var plotSkipBtn = document.querySelector("#plotSkipBtn");
         //add event listener to .coverpage img ele
