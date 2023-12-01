@@ -17,7 +17,6 @@ let HeartImg = new Image(HeartImgUrl);
 
 
 let deviceType = findDeviceType();
-console.log(deviceType);
 let storyLine = localStorage.getItem("storyLine");
 gamelevel = '2';
 let Control_rod;
@@ -299,15 +298,6 @@ function findDeviceType() {
 }
 
 //#endregion
-
-
-setTimeout(() => {
-    console.log("startgame");
-    startgame(gamelevel);
-    loop();
-}, 1500);
-
-
 function startgame(gamelevel) {
     console.log(gamelevel);
     bgAudio = new Audio("../assets/audio/BGM_Lv" + gamelevel + ".mp3");
@@ -533,3 +523,9 @@ function endgame(winbool) {
     }, 100);
 
 }
+
+setTimeout(() => {
+    console.log("startgame");
+    startgame(gamelevel);
+    loop();
+}, 1500);
