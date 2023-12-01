@@ -359,6 +359,8 @@ function startgame(gamelevel) {
 }
 
 function loop() {
+    console.log("loop");
+    console.time("loop");
     //#region Clear
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // delete bullet if it collide with Rubbish
@@ -431,7 +433,7 @@ function loop() {
     //#endregion
 
     //#region Update
-    console.log(plane);
+    console.log("Update Start");
     plane.newPos();
     plane.update();
     for (let i = 0; i < Rubbishs.length; i += 1) {
@@ -463,6 +465,7 @@ function loop() {
     Progress_bar.update();
     Progress_bar_background.update();
     //#endregion
+    console.timeEnd("loop");
 }
 
 function endgame(winbool) {
